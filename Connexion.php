@@ -19,7 +19,7 @@
 		</a>
 	</div>
 
-	<form action="Validation.php" method="post">
+	<form action="ValidationConnexion.php" method="post">
 
 		<fieldset>
 			<legend>Identifiant et mot de passe</legend>
