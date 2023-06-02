@@ -9,6 +9,7 @@ abstract class DAO {
         $this->connect = $c;
     }
 
+    public abstract function connexion(object $obj);
     public abstract function exists(object $obj);
     public abstract function create(object $obj);
     public abstract function update(object $obj);

@@ -39,9 +39,11 @@
 			<?php
 			if (isset($_GET['erreur'])) {
 				if ($_GET['erreur'] == 1) {
-					echo '<i>Veuillez saisir un login et un mot de passe</i>';
+					echo '<i>Veuillez saisir un login et un mot de passe.</i>';
 				} else if ($_GET['erreur'] == 2) {
-					echo '<i>Erreur de login/mot de passe</i>';
+					echo '<i>Ce pseudo n\'existe pas.</i>';
+				} else if ($_GET['erreur'] == 3) {
+					echo '<i>Erreur de correspondance pseudo/mot de passe.</i>';
 				}
 			}
 			?>

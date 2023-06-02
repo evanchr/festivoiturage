@@ -90,12 +90,12 @@ if (isset($_POST) && count($_POST) > 0) {
 			<input id="pseudo" type="text" name="pseudo" minlength="2" placeholder="Jean35" class="champ" pattern="[a-zA-Z0-9]{2,}" value="<?php if (isset($_POST['pseudo'])) echo htmlentities(trim($_POST['pseudo'])); ?>" required><br>
 
 			<label for="mdp1" class="inscription"> Mot de passe* : </label>
-			<input type="password" name="pass1" id="mdp1" pattern="[a-zA-Z0-9\.\-#]{8,16}" class="champ" value="<?php if (isset($_POST['pass1'])) echo htmlentities(trim($_POST['pass1'])); ?>" required><br>
+			<input type="password" name="pass1" id="mdp1" pattern="[a-zA-Z0-9\.\-#]{4,16}" class="champ" value="<?php if (isset($_POST['pass1'])) echo htmlentities(trim($_POST['pass1'])); ?>" required><br>
 			
 			<label for="mdp2" class="inscription"> Confirmation du mot de passe : </label>
-			<input type="password" name="pass2" id="mdp2" pattern="[a-zA-Z0-9\.\-#]{8,16}" class="champ" value="<?php if (isset($_POST['pass2'])) echo htmlentities(trim($_POST['pass2'])); ?>" required><br>
+			<input type="password" name="pass2" id="mdp2" pattern="[a-zA-Z0-9\.\-#]{4,16}" class="champ" value="<?php if (isset($_POST['pass2'])) echo htmlentities(trim($_POST['pass2'])); ?>" required><br>
 			<p class="conditions">
-				*Le mot de passe doit faire entre 8 et 16 caractères, ne comporter que des chiffres, lettres, ou signes tels que le point, le tiret ou le signe #.
+				*Le mot de passe doit faire entre 4 et 16 caractères, ne comporter que des chiffres, lettres, ou signes tels que le point, le tiret ou le signe #.
 			</p>
 			<?php
 			if (isset($_GET['erreur'])) {
@@ -105,6 +105,8 @@ if (isset($_POST) && count($_POST) > 0) {
 					echo '<i>Les 2 mots de passe sont différents</i>';
 				} else if ($_GET['erreur'] == 3) {
 					echo '<i>Un membre possède déjà ce pseudo</i>';
+				} else if ($_GET['erreur'] == 4) {
+					echo '<i>Erreur inconnue</i>';
 				}
 			}
 			?>

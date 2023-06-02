@@ -11,7 +11,7 @@ class UserDAO extends DAO {
     }
 
     // vérifier l'existence de l'association pseudo/mot de passe dans la bd
-    public function exists(object $user) {
+    public function connexion(object $user) {
         $login = $user->getPseudo();
         $password = $user->getPassword();
         $connexion = $this->connect;
@@ -22,9 +22,39 @@ class UserDAO extends DAO {
         return $pdostat;
     }
 
+    public function exists(object $user) {
+        $login = $user->getPseudo();
+        $connexion = $this->connect;
+        $pdostat = $connexion->prepare("SELECT * FROM user WHERE pseudo = :login");
+        $pdostat->bindValue(':login', $login);
+        $pdostat->execute();
+        if($pdostat->rowcount()==0){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    // créer un profil utilisateur
     public function create(object $user) {
-        // Logique pour créer un utilisateur dans la base de données
-        return false;
+        $nom = $user->getNom();
+        $prenom = $user->getPrenom();
+        $age = $user->getAge();
+        $login = $user->getPseudo();
+        $password = $user->getPassword();
+        $connexion = $this->connect;
+        $pdostat = $connexion->prepare("INSERT INTO `user` (`nom`, `prenom`, `age`, `pseudo`, `password`) VALUES (:nom, :prenom, :age, :login, :password); ");
+        $pdostat->bindValue(':nom', $nom);
+        $pdostat->bindValue(':prenom', $prenom);
+        $pdostat->bindValue(':age', $age);
+        $pdostat->bindValue(':login', $login);
+        $pdostat->bindValue(':password', $password);
+        $pdostat->execute();
+        if($pdostat->rowCount()==0){
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public function update(object $user) {

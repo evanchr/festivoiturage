@@ -30,7 +30,7 @@ session_start();
 
 <div class="menu">
 	<a href="Classement.php"><h4>Classement</h4></a>
-	<a href="Inscription.php"><h4>S'inscrire</h4></a>
+	<h4><?php if (!isset($_SESSION['pseudo'])) echo '<a href="Inscription.php">S\'inscrire</a>';?></h4>
    	<h4><?php if (isset($_SESSION['pseudo'])) echo '<a href="Deconnexion.php">Déconnexion</a>';?></h4>
 </div>
 <p class="intro">Bienvenue sur QuizTime ! Si vous souhaitez tester votre culture générale ou tout simplement enrichir votre savoir, vous êtes au bon endroit ! Sur QuizTime vous pouvez répondre à différentes questions sur vos thèmes favoris. Pour commencer veuillez sélectionner un thème :</p>
