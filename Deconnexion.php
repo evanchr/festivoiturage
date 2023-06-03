@@ -2,6 +2,11 @@
 session_start();
 session_unset();
 session_destroy();
-header('Location:Connexion.php');
-exit();
+if(isset($_GET['supp'])){
+    header('Location:Connexion.php?supp=oui');
+    exit();
+} else {
+    header('Location:Connexion.php');
+    exit();
+}
 ?>

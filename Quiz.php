@@ -315,3 +315,11 @@ legend{
 	font-size: 14px;
 }
 
+#boutonsMembre{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+	width: 60%;
+	margin: auto;
+}

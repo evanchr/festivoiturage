@@ -46,6 +46,9 @@
 					echo '<i>Erreur de correspondance pseudo/mot de passe.</i>';
 				}
 			}
+			if (isset($_GET['supp'])) {
+				echo '<script>alert("Votre compte a bien été supprimé.");</script>';
+			}
 			?>
 			<hr>
 		</fieldset>

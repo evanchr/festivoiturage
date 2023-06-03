@@ -63,8 +63,15 @@ class UserDAO extends DAO {
     }
 
     public function delete(object $user) {
-        // Logique pour supprimer un utilisateur de la base de données
-        return false;
+        $pseudo = $user->getPseudo();
+        $connexion = $this->connect;
+        $pdostat = $connexion->prepare("DELETE FROM `user` WHERE pseudo = :pseudo;");
+        $pdostat->bindValue(':pseudo', $pseudo);
+        if($pdostat->execute()){
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 
