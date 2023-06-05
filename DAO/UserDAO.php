@@ -2,7 +2,6 @@
 
 namespace DAO;
 require_once 'DAO/DAO.php';
-use models\User;
 
 class UserDAO extends DAO {
 
@@ -43,7 +42,7 @@ class UserDAO extends DAO {
         $login = $user->getPseudo();
         $password = $user->getPassword();
         $connexion = $this->connect;
-        $pdostat = $connexion->prepare("INSERT INTO `user` (`nom`, `prenom`, `age`, `pseudo`, `password`) VALUES (:nom, :prenom, :age, :login, :password); ");
+        $pdostat = $connexion->prepare("INSERT INTO user (nom, prenom, age, pseudo, password) VALUES (:nom, :prenom, :age, :login, :password); ");
         $pdostat->bindValue(':nom', $nom);
         $pdostat->bindValue(':prenom', $prenom);
         $pdostat->bindValue(':age', $age);
@@ -57,15 +56,32 @@ class UserDAO extends DAO {
         }
     }
 
-    public function update(object $user) {
-        // Logique pour mettre à jour un utilisateur dans la base de données
-        return false;
+    public function update(object $user, String $oldlogin) {
+        $nom = $user->getNom();
+        $prenom = $user->getPrenom();
+        $age = $user->getAge();
+        $newlogin = $user->getPseudo();
+        $password = $user->getPassword();
+        $connexion = $this->connect;
+        $pdostat = $connexion->prepare("UPDATE user SET nom = :nom, prenom = :prenom, age = :age, pseudo = :newlogin, password = :password WHERE pseudo = :oldlogin;");
+        $pdostat->bindValue(':nom', $nom);
+        $pdostat->bindValue(':prenom', $prenom);
+        $pdostat->bindValue(':age', $age);
+        $pdostat->bindValue(':newlogin', $newlogin);
+        $pdostat->bindValue(':password', $password);
+        $pdostat->bindValue(':oldlogin', $oldlogin);
+        $pdostat->execute();
+        if($pdostat->rowCount()==0){
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public function delete(object $user) {
         $pseudo = $user->getPseudo();
         $connexion = $this->connect;
-        $pdostat = $connexion->prepare("DELETE FROM `user` WHERE pseudo = :pseudo;");
+        $pdostat = $connexion->prepare("DELETE FROM user WHERE pseudo = :pseudo;");
         $pdostat->bindValue(':pseudo', $pseudo);
         if($pdostat->execute()){
             return true;

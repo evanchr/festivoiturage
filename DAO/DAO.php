@@ -12,7 +12,7 @@ abstract class DAO {
     public abstract function connexion(object $obj);
     public abstract function exists(object $obj);
     public abstract function create(object $obj);
-    public abstract function update(object $obj);
+    public abstract function update(object $obj, String $oldlog);
     public abstract function delete(object $obj);
 }
 ?>

@@ -32,7 +32,11 @@ if (isset($_POST['envoyer'])) {
                     } else {
                         foreach ($connexion->fetchAll(PDO::FETCH_ASSOC) as $ligne) {
                             session_start();
+                            $_SESSION['nom'] = $ligne['nom'];
+                            $_SESSION['prenom'] = $ligne['prenom'];
+                            $_SESSION['age'] = $ligne['age'];
                             $_SESSION['pseudo'] = $ligne['pseudo'];
+                            $_SESSION['password'] = $ligne['password'];
                             header('Location:Home.php');
                         }
                     }

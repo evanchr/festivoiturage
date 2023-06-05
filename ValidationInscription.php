@@ -15,11 +15,10 @@ if (isset($_POST['envoyer'])) {
     $password2 = trim($_POST['pass2']);
     if ($nom === '' || $prenom === '' || $age === '' || $login === '' || $password1 === '' || $password2 === '') {
         header('Location:Inscription.php?erreur=1');
-    } 
-    if ($password1 != $password2){
-        header('Location:Inscription.php?erreur=2');
     }
-    else {
+    if ($password1 != $password2) {
+        header('Location:Inscription.php?erreur=2');
+    } else {
         try {
             $pdo = new PDO('mysql:host=localhost;dbname=festicovoit', 'root', 'root');
 
@@ -29,12 +28,12 @@ if (isset($_POST['envoyer'])) {
             $userDAO = new UserDAO($pdo);
             $exists = $userDAO->exists($user);
 
-            if($exists){
+            if ($exists) {
                 header('Location:Inscription.php?erreur=3'); //pseudo déjà existant
             } else {
                 $create = $userDAO->create($user);
             }
-        
+
             if (!$create) {
                 header('Location:Inscription.php?erreur=4'); //pas réussi à rentrer infos dans la bd sans raison
             } else {
@@ -45,7 +44,11 @@ if (isset($_POST['envoyer'])) {
                 } else {
                     foreach ($connexion->fetchAll(PDO::FETCH_ASSOC) as $ligne) {
                         session_start();
+                        $_SESSION['nom'] = $ligne['nom'];
+                        $_SESSION['prenom'] = $ligne['prenom'];
+                        $_SESSION['age'] = $ligne['age'];
                         $_SESSION['pseudo'] = $ligne['pseudo'];
+                        $_SESSION['password'] = $ligne['password'];
                         header('Location:Home.php');
                     }
                 }
@@ -56,4 +59,3 @@ if (isset($_POST['envoyer'])) {
         }
     }
 }
-?>

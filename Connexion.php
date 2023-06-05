@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="Quiz.php" media="all">
-	<title>QuizTime - Connexion</title>
+	<title>Festi'Coivoit - Connexion</title>
 </head>
 
 <body>
@@ -26,10 +26,10 @@
 
 			<label for="login" class="inscription"> Pseudo : </label>
 			<input id="login" type="text" name="login" minlength="2" placeholder="Pseudo" pattern="[a-zA-Z0-9]{2,}" class="champ" value="<?php if (isset($_POST['login'])) echo htmlentities(trim($_POST['login'])); ?>" required autofocus><br>
-			<label for="password" class="inscription"> Mot de passe * : </label>
+			<label for="password" class="inscription"> Mot de passe* : </label>
 			<input type="password" name="password" id="password" pattern="[a-zA-Z0-9\.\-#]{4,16}" class="champ" value="<?php if (isset($_POST['password'])) echo htmlentities(trim($_POST['password'])); ?>" required><br>
 			<p class="conditions">
-				Si vous n'êtes pas encore inscrit(e) cliquez ici : <a href="Inscription.php">
+				Si vous n'êtes pas encore inscrit(e) sur Festi'Covoit, cliquez ici : <a href="Inscription.php">
 					<h4>S'inscrire</h4>
 				</a>
 			</p>

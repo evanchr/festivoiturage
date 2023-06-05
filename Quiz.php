@@ -32,7 +32,11 @@ a{
 	text-align: center;
 	color: #ee0019;
 	font-size: 15px;
-	text-decoration: none;
+	text-decoration : none;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 p{
@@ -56,7 +60,7 @@ fieldset{
 	border-radius: 8px;
 	padding: 10px;
 	color: white;
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 	font-size: 15px;
 	font-family: Poppins, sans-serif;
 }
@@ -67,7 +71,7 @@ fieldset{
 
 hr{
 	width: 30%;
-	height: 5px;
+	height: 3px;
 	background-color: #ee0019;
 	border-radius: 5px;
 	border-style: none;
