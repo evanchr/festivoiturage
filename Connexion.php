@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="Quiz.php" media="all">
+	<link rel="stylesheet" type="text/css" href="Style.php" media="all">
 	<title>Festi'Coivoit - Connexion</title>
 </head>
 
@@ -14,12 +14,9 @@
 		<a href="Home.php">
 			<h4>Accueil</h4>
 		</a>
-		<a href="Classement.php">
-			<h4>Classement</h4>
-		</a>
 	</div>
 
-	<form action="validation/ValidationConnexion.php" method="post">
+	<form action="ValidationConnexion.php" method="post">
 
 		<fieldset>
 			<legend>Identifiant et mot de passe</legend>

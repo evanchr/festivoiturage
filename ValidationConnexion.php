@@ -11,7 +11,7 @@ if (isset($_POST['envoyer'])) {
         $login = trim($_POST['login']);
         $password = trim($_POST['password']);
         if ($login === '' || $password === '') {
-            header('Location:login.php?erreur=1');
+            header('Location:Connexion.php?erreur=1');
         } else {
             try {
                 $pdo = new PDO('mysql:host=localhost;dbname=festicovoit', 'root', 'root');

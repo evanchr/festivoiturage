@@ -11,7 +11,7 @@ if (!isset($_SESSION['pseudo'])) {
 
 <head>
 	<title>Espace membre</title>
-	<link href="Quiz.php" rel="stylesheet" media="all" type="text/css">
+	<link href="Style.php" rel="stylesheet" media="all" type="text/css">
 </head>
 
 <body>
@@ -20,9 +20,6 @@ if (!isset($_SESSION['pseudo'])) {
 	<div class="menu">
 		<a href="Home.php">
 			<h4>Accueil</h4>
-		</a>
-		<a href="Classement.php">
-			<h4>Classement</h4>
 		</a>
 	</div>
 

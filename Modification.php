@@ -11,7 +11,7 @@ if (!isset($_SESSION['pseudo'])) {
 
 <head>
     <title>Espace membre</title>
-    <link href="Quiz.php" rel="stylesheet" media="all" type="text/css">
+    <link href="Style.php" rel="stylesheet" media="all" type="text/css">
 </head>
 
 <body>

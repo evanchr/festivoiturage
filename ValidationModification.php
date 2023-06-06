@@ -45,7 +45,7 @@ if (isset($_POST['enregistrer'])) {
                 header('Location:Modification.php?erreur=4'); //l'ancien pseudo n'existe pas mais théoriquement impossible
             }
             if (!$update) {
-                header('Location:membre.php?'); // aucune infos n'a été modifiées
+                header('Location:Membre.php?'); // aucune infos n'a été modifiées
             } else {
                 $connexion = $userDAO->connexion($newuser);
 
@@ -59,7 +59,7 @@ if (isset($_POST['enregistrer'])) {
                         $_SESSION['age'] = $ligne['age'];
                         $_SESSION['pseudo'] = $ligne['pseudo'];
                         $_SESSION['password'] = $ligne['password'];
-                        header('Location:membre.php?update=oui');
+                        header('Location:Membre.php?update=oui');
                     }
                 }
             }
