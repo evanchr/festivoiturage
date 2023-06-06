@@ -33,7 +33,10 @@ session_start();
 	<h4><?php if (!isset($_SESSION['pseudo'])) echo '<a href="Inscription.php">S\'inscrire</a>';?></h4>
    	<h4><?php if (isset($_SESSION['pseudo'])) echo '<a href="Deconnexion.php">Déconnexion</a>';?></h4>
 </div>
-<p class="intro">Bienvenue sur QuizTime ! Si vous souhaitez tester votre culture générale ou tout simplement enrichir votre savoir, vous êtes au bon endroit ! Sur QuizTime vous pouvez répondre à différentes questions sur vos thèmes favoris. Pour commencer veuillez sélectionner un thème :</p>
+<p class="intro">Bienvenue sur Festi'Covoit ! Si vous souhaitez vous rendre à un festival de manière plus écologique et plus économique vous êtes au bon endroit ! <br>
+				Ici, vous pouvez réserver une place dans le véhicule d'un autre festivalier qui se rend au même festival que vous. Cela vous permettra d'économiser sur le prix du trajet,
+				de vous déplacer de manière plus écologique et surtout de rencontrer de super personnes. <br>A l'inverse, s'il vous reste de la place dans votre véhicule, vous pouvez créer une annonce 
+				avec le nombre de personnes que vous pouvez emmener, le festival où vous vous rendez et à quelles dates. Il ne vous reste plus qu'à attendre la reservation de festivaliers ! </p>
 
 <form action="Questions.php" method="post">
 <div class="galerie">	

@@ -1,45 +1,5 @@
 <?php
-
-// bibliothèques
-include('dbfunction.inc.php');
-
 session_start();
-
-// arrivée des données : la page a reçu des données
-if (isset($_POST) && count($_POST) > 0) {
-	// arrivée des données : trop ou pas assez de paramètres
-	if (count($_POST) != 3)
-		$erreur = 'Erreur dans le nombre de paramètres';
-	else
-		// arrivée des données : incomplètes
-		if ((isset($_POST['pseudo']) && empty($_POST['pseudo']))
-			|| (isset($_POST['pass1']) && empty($_POST['pass1']))
-			|| (isset($_POST['pass2']) && empty($_POST['pass2']))
-		)
-			$erreur = 'Données incomplètes';
-		else {
-			// tout est ok
-			// on teste les deux mots de passe
-			if ($_POST['pass1'] != $_POST['pass2']) {
-				$erreur = 'Les 2 mots de passe sont différents.';
-			} else {
-				$login = $_POST['pseudo'];
-				$pass = $_POST['pass1'];
-
-				$numuser = demande_ins($login);
-				if ($numuser  == 0) {
-					enregistre_ins($login, $pass);
-					// on connecte l'utilisateur en le mettant en session
-					session_start();
-					$_SESSION['pseudo'] = $login;
-					header('Location:membre.php');
-					die();
-				} else {
-					$erreur = 'Un membre possède déjà ce login.';
-				}
-			}
-		}
-}
 
 ?>
 
