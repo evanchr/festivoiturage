@@ -34,6 +34,20 @@ class UserDAO extends DAO {
         }
     }
 
+    public function admin(object $user) {
+        $login = $user->getPseudo();
+        $connexion = $this->connect;
+        $pdostat = $connexion->prepare("SELECT * FROM user WHERE pseudo = :login AND admin = :vrai");
+        $pdostat->bindValue(':login', $login);
+        $pdostat->bindValue(':vrai', 1);
+        $pdostat->execute();
+        if($pdostat->rowcount()==0){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     // créer un profil utilisateur
     public function create(object $user) {
         $nom = $user->getNom();

@@ -27,8 +27,8 @@ if (isset($_POST['enregistrer'])) {
 
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $olduser = new User("", "", 0, $oldlogin, "");
-            $newuser = new User($nom, $prenom, $age, $newlogin, $password1);
+            $olduser = new User("", "", 0, $oldlogin, "", 0);
+            $newuser = new User($nom, $prenom, $age, $newlogin, $password1, 0);
 
             $userDAO = new UserDAO($pdo);
 

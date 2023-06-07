@@ -24,7 +24,7 @@ if (isset($_POST['envoyer'])) {
 
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $user = new User($nom, $prenom, $age, $login, $password1);
+            $user = new User($nom, $prenom, $age, $login, $password1, 0);
             $userDAO = new UserDAO($pdo);
             $exists = $userDAO->exists($user);
 

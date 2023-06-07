@@ -18,7 +18,7 @@ if (isset($_POST['envoyer'])) {
 
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $user = new User("", "", 0, $login, $password);
+                $user = new User("", "", 0, $login, $password,"");
                 $userDAO = new UserDAO($pdo);
                 $exists = $userDAO->exists($user);
 
@@ -37,6 +37,10 @@ if (isset($_POST['envoyer'])) {
                             $_SESSION['age'] = $ligne['age'];
                             $_SESSION['pseudo'] = $ligne['pseudo'];
                             $_SESSION['password'] = $ligne['password'];
+                            $admin = $userDAO->admin($user);
+                            if($admin){
+                                $_SESSION['admin'] = $ligne['admin'];
+                            }
                             header('Location:Home.php');
                         }
                     }

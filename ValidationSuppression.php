@@ -13,7 +13,7 @@ try {
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $user = new User("", "", 0, $_SESSION["pseudo"], "");
+    $user = new User("", "", 0, $_SESSION["pseudo"], "", "");
     $userDAO = new UserDAO($pdo);
     $exists = $userDAO->exists($user);
 
