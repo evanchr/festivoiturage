@@ -33,7 +33,7 @@ session_start();
 
 <div class="menu">
 	<h4><?php if (!isset($_SESSION['pseudo'])) echo '<a href="Inscription.php">S\'inscrire</a>';?></h4>
-	<h4><?php if (isset($_SESSION['pseudo']) && isset($_SESSION['admin'])) echo '<a href="Admin.php">Gérer</a>';?></h4>
+	<h4><?php if (isset($_SESSION['pseudo']) && isset($_SESSION['admin'])) echo '<a href="AdminFestivals.php">Gérer</a>';?></h4>
    	<h4><?php if (isset($_SESSION['pseudo'])) echo '<a href="Deconnexion.php">Déconnexion</a>';?></h4>
 </div>
 <p class="intro">Bienvenue sur Festi'Covoit ! Si vous souhaitez vous rendre à un festival de manière plus écologique et plus économique vous êtes au bon endroit ! <br>

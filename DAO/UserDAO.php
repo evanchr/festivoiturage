@@ -103,6 +103,20 @@ class UserDAO extends DAO {
             return false;
         }
     }
+
+    public static function listeAllUser() {
+        $connexion = self::connectStatic();
+        $pdostat = $connexion->prepare("SELECT * FROM user WHERE admin = 0");
+        $pdostat->execute();
+        return $pdostat->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public static function listeAllAdmin() {
+        $connexion = self::connectStatic();
+        $pdostat = $connexion->prepare("SELECT * FROM user WHERE admin = 1");
+        $pdostat->execute();
+        return $pdostat->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }
 
 ?>

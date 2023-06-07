@@ -197,7 +197,7 @@ hr{
 h2{
 	text-align: center;
 	font-size: 40px;
-	color: #ee0019
+	color: #ee0019;
 }
 
 .titre_question{
@@ -326,4 +326,53 @@ legend{
 	gap: 30px;
 	width: 60%;
 	margin: auto;
+}
+
+/* CSS Admin */
+.sidebar {
+    width: auto;
+    height: 100vh;
+    background-color: white;
+    float: left;
+    border-radius: 10px; 
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+	padding : 5px;
+}
+
+.sidebar h3 {
+	padding: 10px;
+	font-size : 25px;
+	color: #ee0019;
+}
+
+.sidebar a {
+	color : #000;
+	text-decoration: none;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 10px;
+}
+
+.sidebar li.active {
+  background-color : #dcdcdc;
+  border-radius: 5px;
+}
+
+.sidebar li.active a {
+  color: #ff0000; /* Couleur de police par défaut */
+}
+
+.content {
+    margin-left: 200px; /* Ajuster en fonction de la largeur de la barre latérale */
+    padding: 20px;
+}
+
+.photosFestivals {
+	height: 125px;
 }
