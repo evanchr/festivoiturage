@@ -331,7 +331,7 @@ legend{
 /* CSS Admin */
 .sidebar {
     width: auto;
-    height: 100vh;
+    height: 100%;
     background-color: white;
     float: left;
     border-radius: 10px; 

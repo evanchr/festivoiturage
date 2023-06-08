@@ -83,7 +83,7 @@ class FestivalDAO extends DAO {
 
     public static function listeAll() {
         $connexion = self::connectStatic();
-        $pdostat = $connexion->prepare("SELECT * FROM festival");
+        $pdostat = $connexion->prepare("SELECT * FROM festival ORDER BY nom ASC");
         $pdostat->execute();
         return $pdostat->fetchAll(\PDO::FETCH_ASSOC);
     }
