@@ -1,378 +1,430 @@
-<?php 
+<?php
 header("Content-type: text/css");
 ?>
 /* CSS General */
 body{
-	background-color: #acdfff;
-	font-family: Poppins, sans-serif;
+background-color: #acdfff;
+font-family: Poppins, sans-serif;
 }
 
 h1{
-	text-align: center;
-	font-size: 50px;
-	margin: 50px 0;
-	color: #ff3c50;
+text-align: center;
+font-size: 50px;
+margin: 50px 0;
+color: #ff3c50;
 }
 
 .menu{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 30px;
-	border-style: solid;
-	border-width: 2px;
-	border-radius: 10px;
-	border-color: #0aa1ff;
-	width: 60%;
-	height: 30px;
-	margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 30px;
+border-style: solid;
+border-width: 2px;
+border-radius: 10px;
+border-color: #0aa1ff;
+width: 60%;
+height: 30px;
+margin: auto;
 }
 
 a{
-	text-align: center;
-	color: #ee0019;
-	font-size: 15px;
-	text-decoration : none;
+text-align: center;
+color: #ee0019;
+font-size: 15px;
+text-decoration : none;
 }
 
-a:hover {
-	text-decoration: underline;
+.menu a:hover {
+text-decoration: underline;
 }
 
 p{
-	font-size: 25px;
-	font-weight: 450;
+font-size: 25px;
+font-weight: 450;
 }
 
 fieldset{
-	margin: auto;
-	border-color: #0aa1ff;
-	width: 500px;
-	border-radius: 10px;
-	background-color: #BCE5FF;
+margin: auto;
+border-color: #0aa1ff;
+width: 500px;
+border-radius: 10px;
+background-color: #BCE5FF;
 }
 
 .envoi{
-	margin: 0 auto;
-	display: block;
-	margin-top: 10px;
-	background-color: #ff3c50;
-	border-radius: 8px;
-	padding: 10px;
-	color: white;
-	margin-bottom: 5px;
-	font-size: 15px;
-	font-family: Poppins, sans-serif;
+margin: 0 auto;
+display: block;
+margin-top: 10px;
+background-color: #ff3c50;
+border-radius: 8px;
+padding: 10px;
+color: white;
+margin-bottom: 5px;
+font-size: 15px;
+font-family: Poppins, sans-serif;
 }
 
 .envoi:hover{
-	transform: scale(1.05);
+transform: scale(1.05);
+text-decoration: none;
 }
 
 hr{
-	width: 30%;
-	height: 3px;
-	background-color: #ee0019;
-	border-radius: 5px;
-	border-style: none;
+width: 30%;
+height: 3px;
+background-color: #ee0019;
+border-radius: 5px;
+border-style: none;
 }
 
 /* CSS Homepage */
 
 .head{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 90%;
-	gap: 35%;
-	margin: auto;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 90%;
+gap: 35%;
+margin: auto;
 }
 
 .connexion{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
 }
 
 .connexion img{
-	height: 40px;
+height: 40px;
 }
 
 .intro{
-	font-size: 14px;
-	color: black;
-	width: 60%;
-	text-align: justify;
-	margin: auto;
-	margin-top: 10px;
+font-size: 14px;
+color: black;
+width: 60%;
+text-align: justify;
+margin: auto;
+margin-top: 10px;
 }
 
 .infos{
-	font-size: 18px;
-	color: black;
-	width: 90%;
-	text-align: justify;
-	margin: auto;
-	margin-top: 10px;
+font-size: 18px;
+color: black;
+width: 90%;
+text-align: justify;
+margin: auto;
+margin-top: 10px;
 }
 
 .resultat{
-	font-size: 18px;
-	color: black;
-	width: 90%;
-	text-align: center;
-	margin: auto;
-	margin-top: 10px;
+font-size: 18px;
+color: black;
+width: 90%;
+text-align: center;
+margin: auto;
+margin-top: 10px;
 }
 
 .galerie {
-    max-width: 1000px;
-    width: 80%;
-    height: auto;
-    margin: 30px auto;
-    display: flex;
-    flex-wrap: wrap;
-    display: flex;
-	align-items: center;
-	justify-content: center;
-    gap: 10px;
+max-width: 1000px;
+width: 80%;
+height: auto;
+margin: 30px auto;
+display: flex;
+flex-wrap: wrap;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
 }
 
 .card{
-	height: 200px;
-	width: 300px;
+height: 200px;
+width: 300px;
 }
 
 .card img{
-	position: absolute;
-	height: 200px;
-	width: 300px;
-	border-radius: 10px;
+position: absolute;
+height: 200px;
+width: 300px;
+border-radius: 10px;
 }
 
 .card input{
-	position: absolute;
-	height: 200px;
-	width: 300px;
-	color: transparent;
-	border-radius: 10px;
-	background-color: transparent;
-	border-color: transparent;
+position: absolute;
+height: 200px;
+width: 300px;
+color: transparent;
+border-radius: 10px;
+background-color: transparent;
+border-color: transparent;
 }
 
 .content{
-	position: relative;
-	color: #ee0019;
-	display: flex;
-	align-items: center;
-    justify-content: center;
+position: relative;
+color: #ee0019;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .nom_theme{
-	margin-left: auto;
-	margin-right: auto;
-	background: rgba(227, 227, 227, 0.75);
-	border-radius: 15px;
-	padding: 5px;
-	width: 70%;
-	outline: solid;
-    outline-color: white;
-    outline-width: 1px;
+margin-left: auto;
+margin-right: auto;
+background: rgba(227, 227, 227, 0.75);
+border-radius: 15px;
+padding: 5px;
+width: 70%;
+outline: solid;
+outline-color: white;
+outline-width: 1px;
 }
 
 .card:hover{
-	opacity: 75%;
-	transform: scale(1.05);
+opacity: 75%;
+transform: scale(1.05);
 }
 
 /* CSS Thème */
 
 .quiz{
-	width: 50%;
-	margin: auto;
-	margin-top: 30px;
+width: 50%;
+margin: auto;
+margin-top: 30px;
 }
 
 h2{
-	text-align: center;
-	font-size: 40px;
-	color: #ee0019;
+text-align: center;
+font-size: 40px;
+color: #ee0019;
 }
 
 .titre_question{
- 	font-size: 30px;
- 	text-decoration: underline;
- 	font-weight: 500;
+font-size: 30px;
+text-decoration: underline;
+font-weight: 500;
 }
 
 .propositions{
-	max-width: 1000px;
-	width: 90%;
-    height: auto;
-    margin: 30px auto;
-    display: flex;
-    flex-wrap: wrap;
-    display: flex;
-	align-items: center;
-	justify-content: center;
-    gap: 30px;
+max-width: 1000px;
+width: 90%;
+height: auto;
+margin: 30px auto;
+display: flex;
+flex-wrap: wrap;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 30px;
 }
 
 .propositions input:checked+label{
-	background-color: #ff3c50;
-	border-radius: 5px;
-	color: white;
+background-color: #ff3c50;
+border-radius: 5px;
+color: white;
 }
 
 .reponse{
-	height: 100px;
-	width: 45%;
-	border-style: solid;
-	border-width: 2px;
-	border-color: #ff3c50;
-	border-radius: 10px;
-	font-size: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+height: 100px;
+width: 45%;
+border-style: solid;
+border-width: 2px;
+border-color: #ff3c50;
+border-radius: 10px;
+font-size: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 .reponse input{
-	display: none;
+display: none;
 }
 
 .reponse label{
-	width: 100%;
-	height: 100%;
-	font-weight: 500;
-	text-align: center;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+width: 100%;
+height: 100%;
+font-weight: 500;
+text-align: center;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .reponse label:hover{
-	transform: scale(1.05);
+transform: scale(1.05);
 }
 
 .reponse:hover{
-	transform: scale(1.05);
+transform: scale(1.05);
 }
 /* CSS Classement */
 
 table{
-	margin: auto;
-	width: 90%;
-	margin-top: 15px;
-	background-color: #BCE5FF;
+margin: auto;
+width: 90%;
+margin-top: 15px;
+background-color: #BCE5FF;
 }
 
 th{
-	border-style: solid;
-	border-width: 2px;
-	border-radius: 5px;
-	border-color: black;
-	text-align: center;
-	color:  #ff3c50;
-	height: 30px;
+border-style: solid;
+border-width: 2px;
+border-radius: 5px;
+border-color: black;
+text-align: center;
+color: #ff3c50;
+height: 30px;
 }
 
 td{
-	border-style: solid;
-	border-width: 2px;
-	border-radius: 5px;
-	border-color: black;
-	text-align: center;
+border-style: solid;
+border-width: 2px;
+border-radius: 5px;
+border-color: black;
+text-align: center;
 }
 
 .place{
-	width: 10%;
+width: 10%;
 }
 
 .joueur{
-	width: 30%;
+width: 30%;
 }
 
 .theme{
-	width: 20%;
+width: 20%;
 }
 
 /* CSS Inscription & Connexion*/
 
 legend{
-	color: #ff3c50;
-	font-size: 20px;
+color: #ff3c50;
+font-size: 20px;
 }
 
 .champ{
-	border-radius: 5px;
-	border-color: transparent;
+border-radius: 5px;
+border-color: transparent;
 }
 
 .conditions{
-	font-style: italic;
-	font-size: 12px;
+font-style: italic;
+font-size: 12px;
 }
 
 .choix{
-	font-size: 14px;
+font-size: 14px;
 }
 
 #boutonsMembre{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 30px;
-	width: 60%;
-	margin: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 30px;
+width: 60%;
+margin: auto;
 }
 
 /* CSS Admin */
 .sidebar {
-    width: auto;
-    height: 100%;
-    background-color: white;
-    float: left;
-    border-radius: 10px; 
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-	padding : 5px;
+width: auto;
+height: 100%;
+background-color: white;
+float: left;
+border-radius: 10px;
+box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+padding : 5px;
 }
 
 .sidebar h3 {
-	padding: 10px;
-	font-size : 25px;
-	color: #ee0019;
+padding: 10px;
+font-size : 25px;
+color: #ee0019;
 }
 
 .sidebar a {
-	color : #000;
-	text-decoration: none;
+color : #000;
+text-decoration: none;
 }
 
 .sidebar ul {
-    list-style-type: none;
-    padding: 0;
+list-style-type: none;
+padding: 0;
 }
 
 .sidebar li {
-    padding: 10px;
+padding: 10px;
 }
 
 .sidebar li.active {
-  background-color : #dcdcdc;
-  border-radius: 5px;
+background-color : #dcdcdc;
+border-radius: 5px;
 }
 
 .sidebar li.active a {
-  color: #ff0000; /* Couleur de police par défaut */
+color: #ff0000; /* Couleur de police par défaut */
 }
 
 .content {
-    margin-left: 200px; /* Ajuster en fonction de la largeur de la barre latérale */
-    padding: 20px;
+margin-left: 200px; /* Ajuster en fonction de la largeur de la barre latérale */
+padding: 20px;
+display: block;
 }
 
 .photosFestivals {
-	height: 125px;
+height: 125px;
+}
+
+caption {
+font-size : 30px;
+}
+
+.modifier {
+height : 50px;
+}
+
+.box {
+display: none;
+position: fixed;
+z-index: 1;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(0, 0, 0, 0.4);
+}
+
+.messageBoxContent {
+background-color: #f5f5f5;
+margin: 20% auto;
+padding: 20px;
+border: 1px solid #ccc;
+border-radius: 5px;
+width: 300px;
+text-align: center;
+}
+
+.messageText {
+font-size: 18px;
+color: #333;
+margin-bottom: 20px;
+}
+
+.close-button {
+background-color: #ddd;
+border: none;
+color: #333;
+padding: 5px 10px;
+font-size: 16px;
+border-radius: 3px;
+cursor: pointer;
+}
+
+.close-button:hover {
+background-color: #ccc;
 }

@@ -24,8 +24,13 @@ session_start();
 		</a>
 	</div>
 
-	<form action="ValidationInscription.php" method="post">
-
+	<?php
+	if(isset($_GET['connecte'])){
+		echo "<form action='ValidationInscription.php?connecte='".$_GET['connecte']." method='post'>";
+	} else {
+		echo "<form action='ValidationInscription.php' method='post'>";
+	}
+	?>
 		<fieldset>
 			<legend>Informations personnelles</legend>
 

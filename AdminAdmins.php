@@ -16,8 +16,17 @@ require_once 'DAO/UserDAO.php';
 </head>
 
 <body>
+    <script>
+        // Fonction pour fermer les fenêtres de messages
+        function closeBox() {
+            var box = document.getElementById('idBox');
+            box.style.display = 'none';
+        }
+    </script>
     <div class="sidebar">
-    <a href="Home.php"><h3>Festi'Covoit</h3></a>
+        <a href="Home.php">
+            <h3>Festi'Covoit</h3>
+        </a>
         <ul>
             <li><a href="AdminFestivals.php">Festivals</a></li>
             <li><a href="AdminUsers.php">Utilisateurs</a></li>
@@ -25,7 +34,7 @@ require_once 'DAO/UserDAO.php';
         </ul>
     </div>
     <div class="content">
-    <table>
+        <table>
             <caption>Liste des administrateurs</caption>
             <tr>
                 <th>Nom</th>
@@ -37,14 +46,14 @@ require_once 'DAO/UserDAO.php';
             $users = UserDAO::listeAllAdmin();
             foreach ($users as $user) {
                 echo "<tr>";
-                    echo "<td>".$user['nom']."</td>";
-                    echo "<td>".$user['prenom']."</td>";
-                    echo "<td>".$user['age']."</td>";
-                    echo "<td>".$user['pseudo']."</td>";
+                echo "<td>" . $user['nom'] . "</td>";
+                echo "<td>" . $user['prenom'] . "</td>";
+                echo "<td>" . $user['age'] . "</td>";
+                echo "<td>" . $user['pseudo'] . "</td>";
                 echo "</tr>";
             }
             ?>
         </table>
-        
+        <hr>
     </div>
 </body>

@@ -17,6 +17,13 @@ require_once 'DAO/UserDAO.php';
 </head>
 
 <body>
+    <script>
+        // Fonction pour fermer les fenêtres de messages
+        function closeBox() {
+            var box = document.getElementById('idBox');
+            box.style.display = 'none';
+        }
+    </script>
     <div class="sidebar">
         <a href="Home.php">
             <h3>Festi'Covoit</h3>
@@ -28,25 +35,63 @@ require_once 'DAO/UserDAO.php';
         </ul>
     </div>
     <div class="content">
-        <table>
-            <caption>Liste des utilisateurs</caption>
-            <tr>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Âge</th>
-                <th>Pseudo</th>
-            </tr>
-            <?php
-            $users = UserDAO::listeAllUser();
-            foreach ($users as $user) {
-                echo "<tr>";
-                    echo "<td>".$user['nom']."</td>";
-                    echo "<td>".$user['prenom']."</td>";
-                    echo "<td>".$user['age']."</td>";
-                    echo "<td>".$user['pseudo']."</td>";
-                echo "</tr>";
-            }
-            ?>
-        </table>
+        <div class="table">
+            <table>
+                <caption>Liste des utilisateurs</caption>
+                <?php
+                if (isset($_GET['erreur'])) {
+                    if ($_GET['erreur'] == 1) {
+                        echo '<i>Ce compte n\'existe pas donc vous ne pouvez pas le supprimer.</i>'; //impossible en théorie
+                    } else if ($_GET['erreur'] == 2) {
+                        echo '<i>Vous ne pouvez pas supprimer un compte administrateur.</i>';
+                    } else if ($_GET['erreur'] == 3) {
+                        echo '<i>La suppression a échoué pour une raison inconnue.</i>';
+                    }
+                }
+                if (isset($_GET['pseudo'])) { //message de confirmation de la suppression du festival
+                    echo "<div id='idBox' class='messageBox'>
+                            <div class='messageBoxContent'>
+                                <p class='messageText'>Le compte " . $_GET['pseudo'] . " a bien été supprimé.</p>
+                                <button class='close-button' onclick='closeBox()'>Fermer</button>
+                            </div>
+                        </div>";
+                }
+                if (isset($_GET['ajout'])) {
+                    echo "<div id='idBox' class='messageBox'>
+                            <div class='messageBoxContent'>
+                                <p class='messageText'>Le compte " . $_GET['ajout'] . " a bien été ajouté.</p>
+                                <button class='close-button' onclick='closeBox()'>Fermer</button>
+                            </div>
+                        </div>";
+                }
+                ?>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Âge</th>
+                    <th>Pseudo</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
+                </tr>
+                <?php
+                $users = UserDAO::listeAllUser();
+                foreach ($users as $user) {
+                    echo "<tr>";
+                    echo "<td>" . $user['nom'] . "</td>";
+                    echo "<td>" . $user['prenom'] . "</td>";
+                    echo "<td>" . $user['age'] . "</td>";
+                    echo "<td>" . $user['pseudo'] . "</td>";
+                    echo "<td><a href='ModificationUser.php?pseudo=" . $user['pseudo'] . "'><img src='Images/Stylo.png' alt='bouton modifier' class='modifier'></a></td>";
+                    echo "<td><a href='ValidationSuppressionUser.php?pseudo=" . $user['pseudo'] . "'><img src='Images/Supp.png' alt='bouton supprimer' class='modifier'></a></td>";
+                    echo "</tr>";
+                }
+                ?>
+            </table>
+        </div>
+        <div id="boutonsMembre">
+            <a href="Inscription.php?connecte=oui"><input class="envoi" type="submit" value="Ajouter un utilisateur"></a>
+        </div>
+        <hr>
     </div>
+
 </body>

@@ -37,19 +37,27 @@ if (isset($_POST['envoyer'])) {
             if (!$create) {
                 header('Location:Inscription.php?erreur=4'); //pas réussi à rentrer infos dans la bd sans raison
             } else {
-                $connexion = $userDAO->connexion($user);
-
-                if ($connexion->rowCount() == 0) {
-                    header('Location:Connexion.php?erreur=3');
+                if (isset($_GET['connecte'])) {
+                    /*si connecté existe cela signifie que l'inscription s'est faite par un utilisateur déjà connecté
+                    c'est à dire qu'il s'agit d'un admin qui inscit un nouveau user à partir du bouton "ajout utilisateur" 
+                    dans l'interface d'AdminUsers. Il faut donc le renvoyer sur cette page en lui confirmant que l'ajout à réussi.*/
+                    header('Location:AdminUsers.php?ajout='.$login);
+                    exit();
                 } else {
-                    foreach ($connexion->fetchAll(PDO::FETCH_ASSOC) as $ligne) {
-                        session_start();
-                        $_SESSION['nom'] = $ligne['nom'];
-                        $_SESSION['prenom'] = $ligne['prenom'];
-                        $_SESSION['age'] = $ligne['age'];
-                        $_SESSION['pseudo'] = $ligne['pseudo'];
-                        $_SESSION['password'] = $ligne['password'];
-                        header('Location:Home.php');
+                    $connexion = $userDAO->connexion($user);
+
+                    if ($connexion->rowCount() == 0) {
+                        header('Location:Connexion.php?erreur=3');
+                    } else {
+                        foreach ($connexion->fetchAll(PDO::FETCH_ASSOC) as $ligne) {
+                            session_start();
+                            $_SESSION['nom'] = $ligne['nom'];
+                            $_SESSION['prenom'] = $ligne['prenom'];
+                            $_SESSION['age'] = $ligne['age'];
+                            $_SESSION['pseudo'] = $ligne['pseudo'];
+                            $_SESSION['password'] = $ligne['password'];
+                            header('Location:Home.php');
+                        }
                     }
                 }
             }

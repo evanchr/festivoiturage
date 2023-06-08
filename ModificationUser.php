@@ -28,7 +28,7 @@ if (!isset($_SESSION['pseudo'])) {
 
     <fieldset>
         <legend>Vos informations :</legend>
-        <form method="POST" action="ValidationModification.php">
+        <form method="POST" action="ValidationModificationUser.php">
             <label for="nom" class="inscription">Nom : </label>
             <input id="nom" type="text" name="nom" minlength="2" placeholder="Dupont" pattern="[a-zA-Z]{2,}" class="champ" value="<?php if (isset($_SESSION['nom'])) echo htmlentities(trim($_SESSION['nom'])); ?>" required autofocus><br>
 

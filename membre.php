@@ -32,19 +32,27 @@ if (!isset($_SESSION['pseudo'])) {
 		<p class="infos">Âge : <?php echo htmlentities(trim($_SESSION['age'])); ?> </p>
 
 		<a href="Deconnexion.php"><input class="envoi" type="submit" value="Deconnexion"></a>
-
+		<?php
+		if (isset($_GET['erreur'])) {
+			if ($_GET['erreur'] == 1) {
+				echo '<i>Votre compte n\'existe pas donc vous ne pouvez pas le supprimer.</i>'; //impossible en théorie
+			} else if ($_GET['erreur'] == 2) {
+				echo '<i>Vous ne pouvez pas supprimer un compte administrateur.</i>';
+			} else if ($_GET['erreur'] == 3) {
+				echo '<i>La suppression a échoué pour une raison inconnue.</i>';
+			}
+		}
+		if (isset($_GET['update'])) {
+			echo '<script>alert("Votre compte a bien été mis à jour.");</script>';
+		}
+		?>
 	</fieldset>
 
 	<div id="boutonsMembre">
 
-		<a href="Modification.php"><input class="envoi" type="submit" value="Modifier mes informations"></a>
-		<a href="ValidationSuppression.php"><input class="envoi" type="submit" name="supprimer" value="Supprimer mon compte"></a>
+		<a href="ModificationUser.php"><input class="envoi" type="submit" value="Modifier mes informations"></a>
+		<a href="ValidationSuppressionUser.php"><input class="envoi" type="submit" name="supprimer" value="Supprimer mon compte"></a>
 	</div>
-	<?php
-	if (isset($_GET['update'])) {
-		echo '<script>alert("Votre compte a bien été mis à jour.");</script>';
-	}
-	?>
 	<hr>
 </body>
 
