@@ -54,6 +54,14 @@ require_once 'DAO/FestivalDAO.php';
                             </div>
                         </div>";
                 }
+                if (isset($_GET['ajout'])) {
+                    echo "<div id='idBox' class='messageBox'>
+                            <div class='messageBoxContent'>
+                                <p class='messageText'>Le festival " . $_GET['ajout'] . " a bien été ajouté.</p>
+                                <button class='close-button' onclick='closeBox()'>Fermer</button>
+                            </div>
+                        </div>";
+                }
                 ?>
                 <tr>
                     <th>Nom</th>

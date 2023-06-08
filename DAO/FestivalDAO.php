@@ -31,7 +31,7 @@ class FestivalDAO extends DAO {
         $localisation = $festival->getLocalisation();
         $cheminPhoto = $festival-> getCheminPhoto();
         $connexion = $this->connect;
-        $pdostat = $connexion->prepare("INSERT INTO festival (nom, dateDebut, dateFin, localisation) VALUES (:nom, :dateDebut, :dateFin, :localisation, :photo)");
+        $pdostat = $connexion->prepare("INSERT INTO festival (nom, dateDebut, dateFin, localisation, cheminPhoto) VALUES (:nom, :dateDebut, :dateFin, :localisation, :photo)");
         $pdostat->bindValue(':nom', $nom);
         $pdostat->bindValue(':dateDebut', $dateDebut);
         $pdostat->bindValue(':dateFin', $dateFin);
