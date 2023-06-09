@@ -23,7 +23,8 @@ border-style: solid;
 border-width: 2px;
 border-radius: 10px;
 border-color: #0aa1ff;
-width: 60%;
+width: 70%;
+max-width: 1300px;
 height: 30px;
 margin: auto;
 }
@@ -85,6 +86,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 width: 90%;
+max-width: 1300px;
 gap: 35%;
 margin: auto;
 }
@@ -103,7 +105,8 @@ height: 40px;
 .intro{
 font-size: 14px;
 color: black;
-width: 60%;
+width: 65%;
+max-width: 1200px;
 text-align: justify;
 margin: auto;
 margin-top: 10px;
@@ -127,39 +130,41 @@ margin: auto;
 margin-top: 10px;
 }
 
-.galerie {
+.grid-container {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+grid-gap: 20px;
 max-width: 1000px;
 width: 80%;
 height: auto;
 margin: 30px auto;
-display: flex;
-flex-wrap: wrap;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 10px;
 }
 
-.card{
-height: 200px;
-width: 300px;
-}
-
-.card img{
-position: absolute;
-height: 200px;
-width: 300px;
+.card {
+background-color: #f5f5f5;
+padding: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 border-radius: 10px;
 }
 
-.card input{
-position: absolute;
-height: 200px;
-width: 300px;
-color: transparent;
-border-radius: 10px;
-background-color: transparent;
-border-color: transparent;
+.card img {
+width: 100%;
+height: auto;
+border-radius: 5px;
+}
+
+.card-info {
+margin-top: 10px;
+}
+
+.card-info h3 {
+font-size: 22px;
+margin: 0;
+}
+
+.card-info p {
+font-size: 15px;
+margin: 5px 0;
 }
 
 .content{
@@ -401,12 +406,17 @@ background-color: rgba(0, 0, 0, 0.4);
 
 .messageBoxContent {
 background-color: #f5f5f5;
-margin: 20% auto;
+margin: auto;
 padding: 20px;
 border: 1px solid #ccc;
 border-radius: 5px;
 width: 300px;
 text-align: center;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+z-index: 9999;
 }
 
 .messageText {
@@ -415,7 +425,7 @@ color: #333;
 margin-bottom: 20px;
 }
 
-.close-button {
+.messageBoxContent button, .messageBoxContent a {
 background-color: #ddd;
 border: none;
 color: #333;
@@ -425,6 +435,6 @@ border-radius: 3px;
 cursor: pointer;
 }
 
-.close-button:hover {
+.messageBoxContent button:hover, .messageBoxContent a:hover {
 background-color: #ccc;
 }

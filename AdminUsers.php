@@ -64,6 +64,13 @@ require_once 'DAO/UserDAO.php';
                             </div>
                         </div>";
                 }
+                if (isset($_GET['confirmer'])){
+                    echo "<div class='messageBoxContent'>
+                    <p class='messageText'>Voulez-vous vraiment supprimer le compte ".$_GET['confirmer']." ?</p>
+                    <a href='ValidationSuppressionUser.php?pseudo=".$_GET['confirmer']."&confirmer=oui'>Oui</a>
+                    <a href='AdminUsers.php'>Annuler</a>
+                  </div>";
+                }
                 ?>
                 <tr>
                     <th>Nom</th>

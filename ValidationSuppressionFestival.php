@@ -10,6 +10,10 @@ require_once 'DAO/FestivalDAO.php';
 
 if (isset($_GET['nom'])) {
     $nom = $_GET['nom'];
+    if (!isset($_GET['confirmer'])){
+        header('Location:AdminFestivals.php?confirmer='.$nom);
+        exit();
+    } 
     try {
         $pdo = new PDO('mysql:host=localhost;dbname=festicovoit', 'root', 'root');
 

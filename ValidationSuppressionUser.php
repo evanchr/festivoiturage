@@ -10,6 +10,10 @@ require_once 'DAO/UserDAO.php';
 
 if (isset($_GET['pseudo'])){
     $pseudo = $_GET['pseudo'];
+    if (!isset($_GET['confirmer'])){
+        header('Location:AdminUsers.php?confirmer='.$pseudo);
+        exit();
+    } 
 } else {
     $pseudo = $_SESSION["pseudo"];
 }

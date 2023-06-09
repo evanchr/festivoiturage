@@ -50,7 +50,7 @@ require_once 'DAO/FestivalDAO.php';
                     echo "<div id='idBox' class='messageBox'>
                             <div class='messageBoxContent'>
                                 <p class='messageText'>Le festival " . $_GET['supp'] . " a bien été supprimé.</p>
-                                <button class='close-button' onclick='closeBox()'>Fermer</button>
+                                <button onclick='closeBox()'>Fermer</button>
                             </div>
                         </div>";
                 }
@@ -58,9 +58,16 @@ require_once 'DAO/FestivalDAO.php';
                     echo "<div id='idBox' class='messageBox'>
                             <div class='messageBoxContent'>
                                 <p class='messageText'>Le festival " . $_GET['ajout'] . " a bien été ajouté.</p>
-                                <button class='close-button' onclick='closeBox()'>Fermer</button>
+                                <button onclick='closeBox()'>Fermer</button>
                             </div>
                         </div>";
+                }
+                if (isset($_GET['confirmer'])){
+                    echo "<div class='messageBoxContent'>
+                    <p class='messageText'>Voulez-vous vraiment supprimer le festival ".$_GET['confirmer']." ?</p>
+                    <a href='ValidationSuppressionFestival.php?nom=".$_GET['confirmer']."&confirmer=oui'>Oui</a>
+                    <a href='AdminFestivals.php'>Annuler</a>
+                  </div>";
                 }
                 ?>
                 <tr>
