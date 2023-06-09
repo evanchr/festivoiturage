@@ -31,6 +31,8 @@ require_once 'DAO/UserDAO.php';
             <li><a href="AdminFestivals.php">Festivals</a></li>
             <li><a href="AdminUsers.php">Utilisateurs</a></li>
             <li class="active"><a href="AdminAdmins.php">Administrateurs</a></li>
+            <li><a href="AdminVehicules.php">Annonces véhicules</a></li>
+            <li><a href="AdminFestivaliers.php">Annonces festivaliers</a></li>
         </ul>
     </div>
     <div class="content">

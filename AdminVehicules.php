@@ -29,10 +29,10 @@ require_once 'DAO/FestivalDAO.php';
             <h3>Festi'Covoit</h3>
         </a>
         <ul>
-            <li class="active"><a href="AdminFestivals.php">Festivals</a></li>
+            <li><a href="AdminFestivals.php">Festivals</a></li>
             <li><a href="AdminUsers.php">Utilisateurs</a></li>
             <li><a href="AdminAdmins.php">Administrateurs</a></li>
-            <li><a href="AdminVehicules.php">Annonces véhicules</a></li>
+            <li class="active"><a href="AdminVehicules.php">Annonces véhicules</a></li>
             <li><a href="AdminFestivaliers.php">Annonces festivaliers</a></li>
         </ul>
     </div>
