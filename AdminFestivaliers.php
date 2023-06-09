@@ -39,7 +39,7 @@ require_once 'DAO/FestivalDAO.php';
     <div class="content">
         <div class="table">
             <table>
-                <caption>Liste des festivals</caption>
+                <caption>Liste des annonces de festivaliers</caption>
                 <?php
                 if (isset($_GET['erreur'])) {
                     if ($_GET['erreur'] == 1) {

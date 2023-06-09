@@ -11,7 +11,7 @@ h1{
 text-align: center;
 font-size: 50px;
 margin: 50px 0;
-color: #ff3c50;
+color: #ff9f10;
 }
 
 .menu{
@@ -31,7 +31,7 @@ margin: auto;
 
 a{
 text-align: center;
-color: #ee0019;
+color: #ff9f10;
 font-size: 15px;
 text-decoration : none;
 }
@@ -57,7 +57,7 @@ background-color: #BCE5FF;
 margin: 0 auto;
 display: block;
 margin-top: 10px;
-background-color: #ff3c50;
+background-color: #ff9f10;
 border-radius: 8px;
 padding: 10px;
 color: white;
@@ -74,7 +74,7 @@ text-decoration: none;
 hr{
 width: 30%;
 height: 3px;
-background-color: #ee0019;
+background-color: #ff9f10;
 border-radius: 5px;
 border-style: none;
 }
@@ -169,7 +169,7 @@ margin: 5px 0;
 
 .content{
 position: relative;
-color: #ee0019;
+color: #ff9f10;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -206,65 +206,6 @@ font-size: 40px;
 color: #ee0019;
 }
 
-.titre_question{
-font-size: 30px;
-text-decoration: underline;
-font-weight: 500;
-}
-
-.propositions{
-max-width: 1000px;
-width: 90%;
-height: auto;
-margin: 30px auto;
-display: flex;
-flex-wrap: wrap;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 30px;
-}
-
-.propositions input:checked+label{
-background-color: #ff3c50;
-border-radius: 5px;
-color: white;
-}
-
-.reponse{
-height: 100px;
-width: 45%;
-border-style: solid;
-border-width: 2px;
-border-color: #ff3c50;
-border-radius: 10px;
-font-size: 20px;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-
-.reponse input{
-display: none;
-}
-
-.reponse label{
-width: 100%;
-height: 100%;
-font-weight: 500;
-text-align: center;
-display: flex;
-align-items: center;
-justify-content: center;
-}
-
-.reponse label:hover{
-transform: scale(1.05);
-}
-
-.reponse:hover{
-transform: scale(1.05);
-}
 /* CSS Classement */
 
 table{
@@ -280,7 +221,7 @@ border-width: 2px;
 border-radius: 5px;
 border-color: black;
 text-align: center;
-color: #ff3c50;
+color: #ff9f10;
 height: 30px;
 }
 
@@ -307,7 +248,7 @@ width: 20%;
 /* CSS Inscription & Connexion*/
 
 legend{
-color: #ff3c50;
+color: #ff9f10;
 font-size: 20px;
 }
 
@@ -348,7 +289,7 @@ padding : 5px;
 .sidebar h3 {
 padding: 10px;
 font-size : 25px;
-color: #ee0019;
+color: #ff9f10;
 }
 
 .sidebar a {
@@ -371,7 +312,7 @@ border-radius: 5px;
 }
 
 .sidebar li.active a {
-color: #ff0000; /* Couleur de police par défaut */
+color: #ff9f10; /* Couleur de police par défaut */
 }
 
 .content {
