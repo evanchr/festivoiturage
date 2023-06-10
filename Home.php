@@ -33,8 +33,6 @@ require_once 'DAO/FestivalDAO.php';
 					echo " (admin)";
 				}
 				echo "</a></h4>";
-				echo '<h4> - </h4>';
-				echo "<a href='Deconnexion.php'><h4>Déconnexion</h4></a>";
 			}
 			if (!isset($_SESSION['pseudo'])) {
 				echo '<a href="Inscription.php"><h4>S\'inscrire</h4></a>';
@@ -87,7 +85,5 @@ require_once 'DAO/FestivalDAO.php';
 		}
 		?>
 	</div>
-	<hr>
 </body>
-
 </html>
