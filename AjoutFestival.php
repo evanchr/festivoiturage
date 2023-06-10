@@ -64,8 +64,5 @@ session_start();
 
         <input class="envoi" type="submit" name="envoyer" value="Ajouter">
     </form>
-
-    <hr>
 </body>
-
 </html>

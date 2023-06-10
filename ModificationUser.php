@@ -1,4 +1,8 @@
 <?php
+
+namespace DAO;
+require_once 'DAO/DAO.php';
+
 session_start();
 if (!isset($_SESSION['pseudo'])) {
     header('Location:Connexion.php');
@@ -27,7 +31,7 @@ if (!isset($_SESSION['pseudo'])) {
     </div>
 
     <fieldset>
-        <legend>Vos informations :</legend>
+        <legend>Informations du compte :</legend>
         <form method="POST" action="ValidationModificationUser.php">
             <label for="nom" class="inscription">Nom : </label>
             <input id="nom" type="text" name="nom" minlength="2" placeholder="Dupont" pattern="[a-zA-Z]{2,}" class="champ" value="<?php if (isset($_SESSION['nom'])) echo htmlentities(trim($_SESSION['nom'])); ?>" required autofocus><br>
@@ -49,7 +53,7 @@ if (!isset($_SESSION['pseudo'])) {
             <p class="conditions">
                 *Le mot de passe doit faire entre 4 et 16 caractères, ne comporter que des chiffres, lettres, ou signes tels que le point, le tiret ou le signe #.
             </p>
-            <input class="envoi" type="submit" name="enregistrer" value="Enregistrer mes modifications">
+            <input class="envoi" type="submit" name="enregistrer" value="Enregistrer les modifications">
         </form>
         <?php
 			if (isset($_GET['erreur'])) {
@@ -70,7 +74,6 @@ if (!isset($_SESSION['pseudo'])) {
     <div id="boutonsMembre">
         <a href="ValidationSuppression.php"><input class="envoi" type="submit" name="supprimer" value="Supprimer mon compte"></a>
     </div>
-    <hr>
 </body>
 
 </html>

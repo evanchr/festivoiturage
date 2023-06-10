@@ -38,24 +38,39 @@ require_once 'DAO/UserDAO.php';
     <div class="content">
         <table>
             <caption>Liste des administrateurs</caption>
+            <?php
+            if (isset($_GET['ajout'])) {
+                echo "<div id='idBox' class='messageBox'>
+                        <div class='messageBoxContent'>
+                            <p class='messageText'>Le compte " . $_GET['ajout'] . " a bien été ajouté en tant qu'administrateur.</p>
+                            <button class='close-button' onclick='closeBox()'>Fermer</button>
+                        </div>
+                    </div>";
+            }
+            ?>
             <tr>
+                <th>Pseudo</th>
                 <th>Nom</th>
                 <th>Prénom</th>
                 <th>Âge</th>
-                <th>Pseudo</th>
             </tr>
             <?php
             $users = UserDAO::listeAllAdmin();
             foreach ($users as $user) {
                 echo "<tr>";
+                echo "<td>" . $user['pseudo'] . "</td>";
                 echo "<td>" . $user['nom'] . "</td>";
                 echo "<td>" . $user['prenom'] . "</td>";
                 echo "<td>" . $user['age'] . "</td>";
-                echo "<td>" . $user['pseudo'] . "</td>";
                 echo "</tr>";
             }
             ?>
         </table>
-        <hr>
+    </div>
+    <div id="boutonsMembre">
+        <a href="Inscription.php?admin=oui"><input class="envoi" type="submit" value="Ajouter un administrateur"></a>
+    </div>
     </div>
 </body>
+
+</html>

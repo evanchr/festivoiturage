@@ -49,8 +49,10 @@ fieldset{
 margin: auto;
 border-color: #0aa1ff;
 width: 500px;
+background-color: #ceecff;
+padding: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 border-radius: 10px;
-background-color: #BCE5FF;
 }
 
 .envoi{
@@ -330,6 +332,7 @@ font-size : 30px;
 }
 
 .modifier {
+padding-top: 5px;
 height : 50px;
 }
 

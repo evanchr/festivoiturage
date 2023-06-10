@@ -66,31 +66,29 @@ require_once 'DAO/UserDAO.php';
                             </div>
                         </div>";
                 }
-                if (isset($_GET['confirmer'])){
+                if (isset($_GET['confirmer'])) {
                     echo "<div class='messageBoxContent'>
-                    <p class='messageText'>Voulez-vous vraiment supprimer le compte ".$_GET['confirmer']." ?</p>
-                    <a href='ValidationSuppressionUser.php?pseudo=".$_GET['confirmer']."&confirmer=oui'>Oui</a>
+                    <p class='messageText'>Voulez-vous vraiment supprimer le compte " . $_GET['confirmer'] . " ?</p>
+                    <a href='ValidationSuppressionUser.php?pseudo=" . $_GET['confirmer'] . "&confirmer=oui'>Oui</a>
                     <a href='AdminUsers.php'>Annuler</a>
                   </div>";
                 }
                 ?>
                 <tr>
+                    <th>Pseudo</th>
                     <th>Nom</th>
                     <th>Prénom</th>
                     <th>Âge</th>
-                    <th>Pseudo</th>
-                    <th>Modifier</th>
                     <th>Supprimer</th>
                 </tr>
                 <?php
                 $users = UserDAO::listeAllUser();
                 foreach ($users as $user) {
                     echo "<tr>";
+                    echo "<td>" . $user['pseudo'] . "</td>";
                     echo "<td>" . $user['nom'] . "</td>";
                     echo "<td>" . $user['prenom'] . "</td>";
                     echo "<td>" . $user['age'] . "</td>";
-                    echo "<td>" . $user['pseudo'] . "</td>";
-                    echo "<td><a href='ModificationUser.php?pseudo=" . $user['pseudo'] . "'><img src='Images/Stylo.png' alt='bouton modifier' class='modifier'></a></td>";
                     echo "<td><a href='ValidationSuppressionUser.php?pseudo=" . $user['pseudo'] . "'><img src='Images/Supp.png' alt='bouton supprimer' class='modifier'></a></td>";
                     echo "</tr>";
                 }
@@ -98,9 +96,7 @@ require_once 'DAO/UserDAO.php';
             </table>
         </div>
         <div id="boutonsMembre">
-            <a href="Inscription.php?connecte=oui"><input class="envoi" type="submit" value="Ajouter un utilisateur"></a>
+            <a href="Inscription.php?"><input class="envoi" type="submit" value="Ajouter un utilisateur"></a>
         </div>
-        <hr>
     </div>
-
 </body>

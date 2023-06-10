@@ -55,13 +55,15 @@ class UserDAO extends DAO {
         $age = $user->getAge();
         $login = $user->getPseudo();
         $password = $user->getPassword();
+        $admin = $user->getAdmin();
         $connexion = $this->connect;
-        $pdostat = $connexion->prepare("INSERT INTO user (nom, prenom, age, pseudo, password) VALUES (:nom, :prenom, :age, :login, :password); ");
+        $pdostat = $connexion->prepare("INSERT INTO user (nom, prenom, age, pseudo, password, admin) VALUES (:nom, :prenom, :age, :login, :password, :admin); ");
         $pdostat->bindValue(':nom', $nom);
         $pdostat->bindValue(':prenom', $prenom);
         $pdostat->bindValue(':age', $age);
         $pdostat->bindValue(':login', $login);
         $pdostat->bindValue(':password', $password);
+        $pdostat->bindValue(':admin', $admin);
         $pdostat->execute();
         if($pdostat->rowCount()==0){
             return false;
@@ -103,6 +105,15 @@ class UserDAO extends DAO {
             return false;
         }
     }
+
+    public function getUser(object $user) {
+        $pseudo = $user->getPseudo();
+        $connexion = $this->connect;
+        $pdostat = $connexion->prepare("SELECT * FROM user WHERE pseudo = :pseudo;");
+        $pdostat->bindValue(':pseudo', $pseudo);
+        return $pdostat;
+    }
+
 
     public static function listeAllUser() {
         $connexion = self::connectStatic();

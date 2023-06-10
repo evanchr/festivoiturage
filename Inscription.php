@@ -19,14 +19,18 @@ session_start();
 		<a href="Home.php">
 			<h4>Accueil</h4>
 		</a>
-		<a href="Connexion.php">
-			<h4>Connexion</h4>
-		</a>
+		<?php 
+		if (!isset($_SESSION['pseudo'])){
+			echo "<a href='Connexion.php'>
+					<h4>Connexion</h4>
+				  </a>";
+		}
+		?>
 	</div>
 
 	<?php
-	if(isset($_GET['connecte'])){
-		echo "<form action='ValidationInscription.php?connecte='".$_GET['connecte']." method='post'>";
+	if(isset($_GET['admin'])){
+		echo "<form action='ValidationInscription.php?admin=oui' method='post'>";
 	} else {
 		echo "<form action='ValidationInscription.php' method='post'>";
 	}
@@ -76,8 +80,5 @@ session_start();
 
 		<input class="envoi" type="submit" name="envoyer" value="Inscription">
 	</form>
-	
-	<hr>
 </body>
-
 </html>

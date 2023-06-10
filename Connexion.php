@@ -47,11 +47,9 @@
 				echo '<script>alert("Votre compte a bien été supprimé.");</script>';
 			}
 			?>
-			<hr>
 		</fieldset>
 
 		<input class="envoi" type="submit" name="envoyer" value="Connexion">
 	</form>
 </body>
-
 </html>

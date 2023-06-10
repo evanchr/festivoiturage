@@ -100,6 +100,5 @@ require_once 'DAO/FestivalDAO.php';
         <div id="boutonsMembre">
             <a href="AjoutFestival.php"><input class="envoi" type="submit" value="Ajouter un festival"></a>
         </div>
-        <hr>
     </div>
 </body>

@@ -24,12 +24,12 @@ if (!isset($_SESSION['pseudo'])) {
 	</div>
 
 	<fieldset>
-		<legend>Vos informations :</legend>
+		<legend>Informations du compte :</legend>
 
-		<p class="infos">Pseudo : <?php echo htmlentities(trim($_SESSION['pseudo'])); ?> </p>
-		<p class="infos">Nom : <?php echo htmlentities(trim($_SESSION['nom'])); ?> </p>
-		<p class="infos">Prénom : <?php echo htmlentities(trim($_SESSION['prenom'])); ?> </p>
-		<p class="infos">Âge : <?php echo htmlentities(trim($_SESSION['age'])); ?> </p>
+		<p class="infos"><b>Pseudo : </b><?php echo htmlentities(trim($_SESSION['pseudo'])); ?> </p>
+		<p class="infos"><b>Nom : </b><?php echo htmlentities(trim($_SESSION['nom'])); ?> </p>
+		<p class="infos"><b>Prénom : </b><?php echo htmlentities(trim($_SESSION['prenom'])); ?> </p>
+		<p class="infos"><b>Âge : </b><?php echo htmlentities(trim($_SESSION['age'])); ?> </p>
 
 		<a href="Deconnexion.php"><input class="envoi" type="submit" value="Deconnexion"></a>
 		<?php
@@ -49,11 +49,9 @@ if (!isset($_SESSION['pseudo'])) {
 	</fieldset>
 
 	<div id="boutonsMembre">
-
 		<a href="ModificationUser.php"><input class="envoi" type="submit" value="Modifier mes informations"></a>
 		<a href="ValidationSuppressionUser.php"><input class="envoi" type="submit" name="supprimer" value="Supprimer mon compte"></a>
 	</div>
-	<hr>
 </body>
 
 </html>
