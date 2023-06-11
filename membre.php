@@ -15,6 +15,13 @@ if (!isset($_SESSION['pseudo'])) {
 </head>
 
 <body>
+	<script>
+		// Fonction pour fermer les fenêtres de messages
+		function closeBox() {
+			var box = document.getElementById('idBox');
+			box.style.display = 'none';
+		}
+	</script>
 	<h1>Espace de <?php echo htmlentities(trim($_SESSION['pseudo'])); ?></h1>
 
 	<div class="menu">
@@ -43,7 +50,12 @@ if (!isset($_SESSION['pseudo'])) {
 			}
 		}
 		if (isset($_GET['update'])) {
-			echo '<script>alert("Votre compte a bien été mis à jour.");</script>';
+			echo "<div id='idBox' class='messageBox'>
+					<div class='messageBoxContent'>
+						<p class='messageText'>Votre compte a bien été modifié.</p>
+						<button class='close-button' onclick='closeBox()'>Fermer</button>
+					</div>
+				</div>";
 		}
 		?>
 	</fieldset>

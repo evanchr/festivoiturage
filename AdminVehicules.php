@@ -81,20 +81,7 @@ require_once 'DAO/FestivalDAO.php';
                     <th>Modifier</th>
                     <th>Supprimer</th>
                 </tr>
-                <?php
-                $festivals = FestivalDAO::listeAll();
-                foreach ($festivals as $festival) {
-                    echo "<tr>";
-                    echo "<td>" . $festival['nom'] . "</td>";
-                    echo "<td>" . $festival['dateDebut'] . "</td>";
-                    echo "<td>" . $festival['dateFin'] . "</td>";
-                    echo "<td>" . $festival['localisation'] . "</td>";
-                    echo "<td><img src='" . $festival['cheminPhoto'] . "' alt='" . $festival['nom'] . "' class='photosFestivals'></td>";
-                    echo "<td><a href='ModificationFestival.php?nom=" . $festival['nom'] . "'><img src='Images/Stylo.png' alt='bouton modifier' class='modifier'></a></td>";
-                    echo "<td><a href='ValidationSuppressionFestival.php?nom=" . $festival['nom'] . "'><img src='Images/Supp.png' alt='bouton supprimer' class='modifier'></a></td>";
-                    echo "</tr>";
-                }
-                ?>
+                
             </table>
         </div>
         <div id="boutonsMembre">

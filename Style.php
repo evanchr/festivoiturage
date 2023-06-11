@@ -204,8 +204,8 @@ margin-top: 30px;
 
 h2{
 text-align: center;
-font-size: 40px;
-color: #ee0019;
+font-size: 28px;
+color: #ff9f10;
 }
 
 /* CSS Classement */

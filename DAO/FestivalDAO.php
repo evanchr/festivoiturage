@@ -81,6 +81,15 @@ class FestivalDAO extends DAO {
         }
     }
 
+    public function getFestival(object $festival) {
+        $nom = $festival->getNom();
+        $connexion = $this->connect;
+        $pdostat = $connexion->prepare("SELECT * FROM festival WHERE nom = :nom");
+        $pdostat->bindValue(':nom', $nom);
+        $pdostat->execute();
+        return $pdostat;
+    }
+
     public static function listeAll() {
         $connexion = self::connectStatic();
         $pdostat = $connexion->prepare("SELECT * FROM festival ORDER BY nom ASC");

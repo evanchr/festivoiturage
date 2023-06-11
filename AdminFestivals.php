@@ -71,6 +71,14 @@ require_once 'DAO/FestivalDAO.php';
                     <a href='AdminFestivals.php'>Annuler</a>
                   </div>";
                 }
+                if (isset($_GET['update'])) {
+                    echo "<div id='idBox' class='messageBox'>
+                            <div class='messageBoxContent'>
+                                <p class='messageText'>Le festival " . $_GET['update'] . " a bien été modifié.</p>
+                                <button class='close-button' onclick='closeBox()'>Fermer</button>
+                            </div>
+                        </div>";
+                }
                 ?>
                 <tr>
                     <th>Nom</th>

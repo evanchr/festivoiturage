@@ -25,9 +25,13 @@ if (!isset($_SESSION['pseudo'])) {
         <a href="Home.php">
             <h4>Accueil</h4>
         </a>
-        <a href="Classement.php">
-            <h4>Classement</h4>
-        </a>
+        <?php
+		if (isset($_SESSION['pseudo']) && isset($_SESSION['admin'])) {
+			echo '<a href="AdminFestivals.php">
+                    <h4>Gérer</h4>
+                  </a>';
+		}
+		?>
     </div>
 
     <fieldset>

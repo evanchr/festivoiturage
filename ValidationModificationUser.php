@@ -16,10 +16,10 @@ if (isset($_POST['enregistrer'])) {
     $password1 = trim($_POST['pass1']);
     $password2 = trim($_POST['pass2']);
     if ($nom === '' || $prenom === '' || $age === '' || $newlogin === '' || $password1 === '' || $password2 === '') {
-        header('Location:Modification.php?erreur=1'); //champs vides
+        header('Location:ModificationUser.php?erreur=1'); //champs vides
     } 
     if ($password1 != $password2){
-        header('Location:Modification.php?erreur=2'); //mdp différents
+        header('Location:ModificationUser.php?erreur=2'); //mdp différents
     }
     else {
         try {
@@ -37,15 +37,15 @@ if (isset($_POST['enregistrer'])) {
 
             if($existsold){
                 if($existsnew && $existsold != $existsnew){
-                    header('Location:Modification.php?erreur=3'); // Ce pseudo est déjà pris
+                    header('Location:ModificationUser.php?erreur=3'); // Ce pseudo est déjà pris
                 } else {
                     $update = $userDAO->update($newuser, $oldlogin);
                 }
             } else {
-                header('Location:Modification.php?erreur=4'); //l'ancien pseudo n'existe pas mais théoriquement impossible
+                header('Location:ModificationUser.php?erreur=4'); //l'ancien pseudo n'existe pas mais théoriquement impossible
             }
             if (!$update) {
-                header('Location:Membre.php?'); // aucune infos n'a été modifiées
+                header('Location:Membre.php'); // aucune infos n'a été modifiées
             } else {
                 $connexion = $userDAO->connexion($newuser);
 
