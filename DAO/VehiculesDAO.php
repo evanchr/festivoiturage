@@ -28,15 +28,19 @@ class VehiculeDAO extends DAO {
         $id = $vehicule->getId();
         $type = $vehicule->getType();
         $places = $vehicule->getPlaces();
+        $ville = $vehicule->getVille();
+        $festival = $vehicule->getFestival();
         $dateAller = $vehicule->getDateAller();
         $dateRetour = $vehicule-> getDateRetour();
         $description = $vehicule-> getDescription();
         $proprietaire = $vehicule-> getProprietaire();
         $connexion = $this->connect;
-        $pdostat = $connexion->prepare("INSERT INTO vehicule (id, type, places, dateAller, dateRetour, description, proprietaire) VALUES (:id, :type, :places, :dateAller, :dateRetour, :description, :proprietaire)");
+        $pdostat = $connexion->prepare("INSERT INTO vehicule (id, type, places, ville, festival, dateAller, dateRetour, description, proprietaire) VALUES (:id, :type, :places, :ville, :festival, :dateAller, :dateRetour, :description, :proprietaire)");
         $pdostat->bindValue(':id', $id);
         $pdostat->bindValue(':type', $type);
         $pdostat->bindValue(':places', $places);
+        $pdostat->bindValue(':ville', $ville);
+        $pdostat->bindValue(':festival', $festival);
         $pdostat->bindValue(':dateAller', $dateAller);
         $pdostat->bindValue(':dateRetour', $dateRetour);
         $pdostat->bindValue(':description', $description);
@@ -54,6 +58,8 @@ class VehiculeDAO extends DAO {
         $id = $vehicule->getId();
         $type = $vehicule->getType();
         $places = $vehicule->getPlaces();
+        $ville = $vehicule->getVille();
+        $festival = $vehicule->getFestival();
         $dateAller = $vehicule->getDateAller();
         $dateRetour = $vehicule-> getDateRetour();
         $description = $vehicule-> getDescription();
@@ -63,6 +69,8 @@ class VehiculeDAO extends DAO {
         $pdostat->bindValue(':id', $id);
         $pdostat->bindValue(':type', $type);
         $pdostat->bindValue(':places', $places);
+        $pdostat->bindValue(':ville', $ville);
+        $pdostat->bindValue(':festival', $festival);
         $pdostat->bindValue(':dateAller', $dateAller);
         $pdostat->bindValue(':dateRetour', $dateRetour);
         $pdostat->bindValue(':description', $description);

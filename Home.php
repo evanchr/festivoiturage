@@ -70,7 +70,9 @@ require_once 'DAO/FestivalDAO.php';
 		de vous déplacer de manière plus écologique et surtout de rencontrer de super personnes. <br>A l'inverse, s'il vous reste de la place dans votre véhicule, vous pouvez créer une annonce
 		avec le nombre de personnes que vous pouvez emmener, le festival où vous vous rendez et à quelles dates. Il ne vous reste plus qu'à attendre la reservation de festivaliers ! </p>
 
-		<h2>Nos festivals partenaires :</h2>
+
+
+	<h2>Nos festivals partenaires :</h2>
 	<div class="grid-container">
 		<?php
 		$festivals = FestivalDAO::listeAll();
@@ -86,5 +88,8 @@ require_once 'DAO/FestivalDAO.php';
 		}
 		?>
 	</div>
+
+	<a href="AjoutVehicule.php"><input class="envoi" type="submit" name="supprimer" value="Créer une annonce"></a>
 </body>
+
 </html>
