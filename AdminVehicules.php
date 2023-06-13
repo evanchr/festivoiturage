@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-use DAO\FestivalDAO;
+use DAO\VehiculeDAO;
 
-require_once 'DAO/FestivalDAO.php';
+require_once 'DAO/VehiculeDAO.php';
 
 ?>
 
@@ -73,19 +73,35 @@ require_once 'DAO/FestivalDAO.php';
                 }
                 ?>
                 <tr>
-                    <th>Nom</th>
-                    <th>Date de début</th>
-                    <th>Date de fin</th>
+                    <th>ID</th>
+                    <th>Modèle</th>
+                    <th>Places</th>
                     <th>Ville</th>
-                    <th>Photo</th>
-                    <th>Modifier</th>
+                    <th>Festival</th>
+                    <th>Date aller</th>
+                    <th>Date retour</th>
+                    <th>Description</th>
+                    <th>Propriétaire</th>
                     <th>Supprimer</th>
                 </tr>
-                
+                <?php
+                $vehicules = VehiculeDAO::listeAll();
+                foreach ($vehicules as $vehicule) {
+                    echo "<tr>";
+                    echo "<td>" . $vehicule['id'] . "</td>";
+                    echo "<td>" . $vehicule['type'] . "</td>";
+                    echo "<td>" . $vehicule['places'] . "</td>";
+                    echo "<td>" . $vehicule['ville'] . "</td>";
+                    echo "<td>" . $vehicule['festival'] . "</td>";
+                    echo "<td>" . $vehicule['dateAller'] . "</td>";
+                    echo "<td>" . $vehicule['dateRetour'] . "</td>";
+                    echo "<td>" . $vehicule['description'] . "</td>";
+                    echo "<td>" . $vehicule['proprietaire'] . "</td>";
+                    echo "<td><a href='ValidationSuppressionVehicule.php?nom=" . $vehicule['id'] . "'><img src='Images/Supp.png' alt='bouton supprimer' class='modifier'></a></td>";
+                    echo "</tr>";
+                }
+                ?>
             </table>
-        </div>
-        <div id="boutonsMembre">
-            <a href="AjoutFestival.php"><input class="envoi" type="submit" value="Ajouter un festival"></a>
         </div>
     </div>
 </body>

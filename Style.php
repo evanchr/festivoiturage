@@ -210,7 +210,7 @@ color: #ff9f10;
 
 table{
 margin: auto;
-width: 90%;
+width: 95%;
 margin-top: 15px;
 background-color: #BCE5FF;
 }
