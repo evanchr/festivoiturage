@@ -17,14 +17,14 @@ if (isset($_POST['enregistrer'])) {
     $cheminPhoto = trim($_POST['cheminPhoto']);
     if ($newNom === '' || $dateDebut === '' || $dateFin === '' || $ville === '' || $cheminPhoto === '') {
         header('Location:ModificationFestival.php?erreur=1'); //champs vides
-    } 
-    else {
+    } else {
         try {
-            $pdo = new PDO('mysql:servername=localhost; dbname=retxaqbg_festicovoit; charset=utf8mb4', 'retxaqbg_evan', 'Evan.Mateo1234');
+            //$pdo = new PDO('mysql:servername=localhost; dbname=retxaqbg_festicovoit; charset=utf8mb4', 'retxaqbg_evan', 'Evan.Mateo1234');
+            $pdo = new PDO('mysql:host=localhost; dbname=festicovoit; charset=utf8mb4', 'root', 'root');
 
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $oldfestival = new Festival($oldNom, "" , "", "", "");
+            $oldfestival = new Festival($oldNom, "", "", "", "");
             $newfestival = new Festival($newNom, $dateDebut, $dateFin, $ville, $cheminPhoto);
 
             $festivalDAO = new FestivalDAO($pdo);
@@ -32,8 +32,8 @@ if (isset($_POST['enregistrer'])) {
             $existsold = $festivalDAO->exists($oldfestival);
             $existsnew = $festivalDAO->exists($newfestival);
 
-            if($existsold){
-                if($existsnew && $existsold != $existsnew){
+            if ($existsold) {
+                if ($existsnew && $existsold != $existsnew) {
                     header('Location:ModificationFestival.php?erreur=2'); // Ce festival est déjà existat
                 } else {
                     $update = $festivalDAO->update($newfestival, $oldNom);
@@ -44,7 +44,7 @@ if (isset($_POST['enregistrer'])) {
             if (!$update) {
                 header('Location:AdminFestivals.php'); // aucune info n'a été modifiée
             } else {
-                header("Location:AdminFestivals.php?update=".$newNom."");
+                header("Location:AdminFestivals.php?update=" . $newNom . "");
             }
         } catch (PDOException $e) {
             echo "<p>Erreur: " . $e->getMessage();
@@ -52,4 +52,3 @@ if (isset($_POST['enregistrer'])) {
         }
     }
 }
-?>

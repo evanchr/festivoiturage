@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-use DAO\FestivalDAO;
+use DAO\VehiculeDAO;
 
-require_once 'DAO/FestivalDAO.php';
+require_once 'DAO/VehiculeDAO.php';
 
 ?>
 
@@ -21,7 +21,13 @@ require_once 'DAO/FestivalDAO.php';
 </head>
 
 <body>
-
+    <script>
+        // Fonction pour fermer les fenêtres de messages
+        function closeBox() {
+            var box = document.getElementById('idBox');
+            box.style.display = 'none';
+        }
+    </script>
     <div class="head">
         <h1>Festi'Covoit</h1>
         <div class="connexion">
@@ -37,6 +43,14 @@ require_once 'DAO/FestivalDAO.php';
                 echo '<a href="Inscription.php"><h4>S\'inscrire</h4></a>';
                 echo '<h4> - </h4>';
                 echo "<a href='Connexion.php'><h4>Connexion</h4></a>";
+            }
+            if (isset($_GET['ajout'])) {
+                echo "<div id='idBox' class='messageBox'>
+                        <div class='messageBoxContent'>
+                            <p class='messageText'>L'annonce de la " . $_GET['ajout'] . " a bien été publiée.</p>
+                            <button onclick='closeBox()'>Fermer</button>
+                        </div>
+                    </div>";
             }
             ?>
             <img src="Images/User.png" alt="bouton connexion">
@@ -67,8 +81,26 @@ require_once 'DAO/FestivalDAO.php';
         de vous déplacer de manière plus écologique et surtout de rencontrer de super personnes. <br>A l'inverse, s'il vous reste de la place dans votre véhicule, vous pouvez créer une annonce
         avec le nombre de personnes que vous pouvez emmener, le festival où vous vous rendez et à quelles dates. Il ne vous reste plus qu'à attendre la reservation de festivaliers ! </p>
 
+    <h2>Liste des annonces de véhicules :</h2>
     <div class="grid-container">
-
+        <?php
+        $vehicules = VehiculeDAO::listeAll();
+        foreach ($vehicules as $vehicule) {
+            echo "<div class='card'>";
+            echo "<div class='card-info'>";
+            echo "<h3>" . $vehicule['type'] . "</h3>";
+            echo "<h4>Festival concerné : " . $vehicule['festival'] . "</h4>";
+            echo "<p><b>Départ : </b>" . $vehicule['ville'] . " le ".$vehicule['dateAller']."</p>";
+            if ($vehicule['dateRetour'] != "0000-00-00") {
+                echo "<p><b>Retour le : </b>".$vehicule['dateRetour']."</p>";
+            }
+            echo "<p><b>Nombre de places disponibles : </b>" . $vehicule['places'] . "</p>";
+            echo "<p><b>Propriétaire du véhicule : </b>" . $vehicule['proprietaire'] ."</p>";
+            echo "<p><b>Détails de l'annonce : </b>" . $vehicule['description'] . "</p>";
+            echo "</div>";
+            echo "</div>";
+        }
+        ?>
     </div>
 </body>
 

@@ -21,7 +21,13 @@ require_once 'DAO/FestivalDAO.php';
 </head>
 
 <body>
-
+	<script>
+		// Fonction pour fermer les fenêtres de messages
+		function closeBox() {
+			var box = document.getElementById('idBox');
+			box.style.display = 'none';
+		}
+	</script>
 	<div class="head">
 		<h1>Festi'Covoit</h1>
 
@@ -38,6 +44,18 @@ require_once 'DAO/FestivalDAO.php';
 				echo '<a href="Inscription.php"><h4>S\'inscrire</h4></a>';
 				echo '<h4> - </h4>';
 				echo "<a href='Connexion.php'><h4>Connexion</h4></a>";
+			}
+			if (isset($_GET['annonce'])) {
+				echo "<div class='messageBoxContent'>
+				<p class='messageText'>Voulez-vous publier une annonce :<ul> 
+											<li>pour mettre à disposition un véhicule. </li>
+											<li>en tant que festivalier qui chercher un moyen de transport. </li>
+										</ul>
+				</p>
+				<a href='AjoutVehicule.php'>Véhicule</a>
+				<a href='AjoutFestivalier.php'>Festivalier</a>
+				<a href='Home.php'>Annuler</a>
+			  </div>";
 			}
 			?>
 			<img src="Images/User.png" alt="bouton connexion">
@@ -89,7 +107,9 @@ require_once 'DAO/FestivalDAO.php';
 		?>
 	</div>
 
-	<a href="AjoutVehicule.php"><input class="creation-annonce" type="submit" name="supprimer" value="Créer une annonce"></a>
+	<a href="Home.php?annonce=oui"><input class="creation-annonce" type="submit" name="supprimer" value="Créer une annonce"></a>
+
+	<p class="outro">Psst... D'autres festivals seront bientot ajoutés !</p>
 </body>
 
 </html>

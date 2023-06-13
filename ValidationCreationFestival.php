@@ -19,7 +19,8 @@ if (isset($_POST['envoyer'])) {
         header('Location:AjoutFestival.php?erreur=2');
     } else {
         try {
-            $pdo = new PDO('mysql:servername=localhost; dbname=retxaqbg_festicovoit; charset=utf8mb4', 'retxaqbg_evan', 'Evan.Mateo1234');
+            //$pdo = new PDO('mysql:servername=localhost; dbname=retxaqbg_festicovoit; charset=utf8mb4', 'retxaqbg_evan', 'Evan.Mateo1234');
+            $pdo = new PDO('mysql:host=localhost; dbname=festicovoit; charset=utf8mb4', 'root', 'root');
 
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -35,7 +36,7 @@ if (isset($_POST['envoyer'])) {
             if (!$create) {
                 header('Location:AjoutFestival.php?erreur=4'); //pas réussi à rentrer infos dans la bd sans raison
             } else {
-                header('Location:AdminFestivals.php?ajout='.$nom); 
+                header('Location:AdminFestivals.php?ajout=' . $nom);
             }
         } catch (PDOException $e) {
             echo "<p>Erreur: " . $e->getMessage();

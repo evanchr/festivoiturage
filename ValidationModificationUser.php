@@ -17,13 +17,13 @@ if (isset($_POST['enregistrer'])) {
     $password2 = trim($_POST['pass2']);
     if ($nom === '' || $prenom === '' || $age === '' || $newlogin === '' || $password1 === '' || $password2 === '') {
         header('Location:ModificationUser.php?erreur=1'); //champs vides
-    } 
-    if ($password1 != $password2){
-        header('Location:ModificationUser.php?erreur=2'); //mdp différents
     }
-    else {
+    if ($password1 != $password2) {
+        header('Location:ModificationUser.php?erreur=2'); //mdp différents
+    } else {
         try {
-            $pdo = new PDO('mysql:servername=localhost; dbname=retxaqbg_festicovoit; charset=utf8mb4', 'retxaqbg_evan', 'Evan.Mateo1234');
+            //$pdo = new PDO('mysql:servername=localhost; dbname=retxaqbg_festicovoit; charset=utf8mb4', 'retxaqbg_evan', 'Evan.Mateo1234');
+            $pdo = new PDO('mysql:host=localhost; dbname=festicovoit; charset=utf8mb4', 'root', 'root');
 
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -35,8 +35,8 @@ if (isset($_POST['enregistrer'])) {
             $existsold = $userDAO->exists($olduser);
             $existsnew = $userDAO->exists($newuser);
 
-            if($existsold){
-                if($existsnew && $existsold != $existsnew){
+            if ($existsold) {
+                if ($existsnew && $existsold != $existsnew) {
                     header('Location:ModificationUser.php?erreur=3'); // Ce pseudo est déjà pris
                 } else {
                     $update = $userDAO->update($newuser, $oldlogin);
@@ -69,4 +69,3 @@ if (isset($_POST['enregistrer'])) {
         }
     }
 }
-?>

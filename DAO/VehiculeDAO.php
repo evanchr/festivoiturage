@@ -36,6 +36,7 @@ class VehiculeDAO extends DAO {
         $proprietaire = $vehicule-> getProprietaire();
         $connexion = $this->connect;
         $pdostat = $connexion->prepare("INSERT INTO vehicule (id, type, places, ville, festival, dateAller, dateRetour, description, proprietaire) VALUES (:id, :type, :places, :ville, :festival, :dateAller, :dateRetour, :description, :proprietaire)");
+        //INSERT INTO `vehicule` (`id`, `type`, `places`, `ville`, `festival`, `dateAller`, `dateRetour`, `description`, `proprietaire`) VALUES ('', 'peugeot 208', '3', 'rennes (35)', 'Terres du son', '2023-07-06', NULL, 'Test description', 'evan');
         $pdostat->bindValue(':id', $id);
         $pdostat->bindValue(':type', $type);
         $pdostat->bindValue(':places', $places);

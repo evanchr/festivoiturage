@@ -1,6 +1,13 @@
 <?php
 session_start();
+if (!isset($_SESSION['pseudo'])) {
+	header('Location:Connexion.php');
+	exit();
+}
 
+use DAO\FestivalDAO;
+
+require_once 'DAO/FestivalDAO.php';
 ?>
 
 <!DOCTYPE html>
@@ -25,37 +32,51 @@ session_start();
         <fieldset>
             <legend>Informations de l'annonce</legend>
 
+            <label for="festival" class="inscription">Festival : </label>
+            <select id="festival" name="festival" class="champ" required>
+            <option value="">Sélectionnez un festival</option>
+                <?php
+                $festivals = FestivalDAO::listeAll();
+                foreach ($festivals as $festival) {
+                    echo '<option value="'.$festival['nom'].'">'.$festival['nom'].'</option>';
+                }
+                ?>
+            </select>
+            <br>
+
             <label for="type" class="inscription">Modèle de véhicule : </label>
-            <input id="type" type="text" name="nom" minlength="2" placeholder="Peugeot 208" class="champ" value="<?php if (isset($_POST['type'])) echo htmlentities(trim($_POST['type'])); ?>" required autofocus><br>
+            <input id="type" type="text" name="type" minlength="2" placeholder="Peugeot 208" class="champ" required autofocus><br>
 
             <label for="places" class="inscription">Nombre de places disponibles : </label>
-            <input id="places" type="text" name="places" minlength="2" class="champ" value="<?php if (isset($_POST['dateDebut'])) echo htmlentities(trim($_POST['dateDebut'])); ?>" required><br>
+            <input id="places" type="number" name="places" minlength="2" min="1" max="5" size="10" class="champ" required><br>
+
+            <label for="ville" class="inscription">Ville de départ : </label>
+            <input id="ville" type="text" name="ville" minlength="2" placeholder="Rennes (35)" class="champ" required><br>
 
             <label for="dateAller" class="inscription">Date de départ : </label>
-            <input id="dateAller" type="date" name="dateFin" minlength="2" class="champ" value="<?php if (isset($_POST['dateFin'])) echo htmlentities(trim($_POST['dateFin'])); ?>" required><br>
+            <input id="dateAller" type="date" name="dateAller" minlength="2" class="champ" required><br>
 
-            <label for="ville" class="inscription">Ville : </label>
-            <input id="ville" type="text" name="ville" minlength="2" placeholder="Paris (75)" class="champ" value="<?php if (isset($_POST['ville'])) echo htmlentities(trim($_POST['ville'])); ?>" required><br>
+            <label for="dateRetour" class="inscription">Date de retour (facultatif) : </label>
+            <input id="dateRetour" type="date" name="dateRetour" minlength="2" class="champ"><br>
 
-            <label for="cheminPhoto" class="inscription"> Chemin d'accès à la photo du festival : </label>
-            <input id="cheminPhoto" type="text" name="cheminPhoto" placeholder="Images/Solidays.jpg" class="champ" value="<?php if (isset($_POST['cheminPhoto'])) echo htmlentities(trim($_POST['cheminPhoto'])); ?>" required><br>
+            <label for="description" class="inscription"> Description : </label>
+            <textarea id="description" name="description" maxlength="500" rows="5" cols="100" placeholder="Nous vous proposons un trajet entre rennes et paris pour se rendre au festival solidays..." class="champ" required></textarea><br>
 
             <?php
             if (isset($_GET['erreur'])) {
                 if ($_GET['erreur'] == 1) {
-                    echo '<i>Veuillez bien remplir tous les champs</i>';
+                    echo '<i>Les 2 dates ne correspondent pas, vous ne pouvez pas mettre une date de retour plus tôt que la date d\'aller.</i>';
                 } else if ($_GET['erreur'] == 2) {
-                    echo '<i>Les 2 dates ne correspondent pas, vous ne pouvez pas mettre une date de fin plus tôt que la date de début.</i>';
+                    echo '<i>Cette annonce existe déjà sur Festi\'Covoit</i>';
                 } else if ($_GET['erreur'] == 3) {
-                    echo '<i>Ce festival existe déjà sur Festi\'Covoit</i>';
-                } else if ($_GET['erreur'] == 4) {
                     echo '<i>Erreur inconnue</i>';
                 }
             }
             ?>
         </fieldset>
 
-        <input class="envoi" type="submit" name="envoyer" value="Ajouter">
+        <input class="envoi" type="submit" name="envoyer" value="Publier mon annonce">
     </form>
 </body>
+
 </html>

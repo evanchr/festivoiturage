@@ -1,7 +1,7 @@
 <?php
 namespace models;
 
-class Vehicle {
+class Vehicule {
     private $id;
     private $type;
     private $places;
@@ -29,7 +29,7 @@ class Vehicle {
     public function getId() { return $this->id; }
     public function getType() { return $this->type; }
     public function getPlaces() { return $this->places; }
-    public function getVile() { return $this->ville; }
+    public function getVille() { return $this->ville; }
     public function getFestival() { return $this->festival; }
     public function getDateAller() { return $this->dateAller; }
     public function getDateRetour() { return $this->dateRetour; }

@@ -114,6 +114,16 @@ margin: auto;
 margin-top: 10px;
 }
 
+.outro{
+font-size: 14px;
+color: black;
+width: 65%;
+max-width: 1200px;
+text-align: center;
+margin: auto;
+margin-top: 10px;
+}
+
 .infos{
 font-size: 18px;
 color: black;
@@ -161,7 +171,13 @@ margin-top: 10px;
 
 .card-info h3 {
 font-size: 22px;
-margin: 0;
+font-style : none;
+margin: 0px;
+}
+
+.card-info h4 {
+font-size: 17px;
+margin : 0px;
 }
 
 .card-info p {
@@ -177,29 +193,13 @@ align-items: center;
 justify-content: center;
 }
 
-.nom_theme{
-margin-left: auto;
-margin-right: auto;
-background: rgba(227, 227, 227, 0.75);
-border-radius: 15px;
-padding: 5px;
-width: 70%;
-outline: solid;
-outline-color: white;
-outline-width: 1px;
-}
-
 .card:hover{
-opacity: 75%;
 transform: scale(1.05);
 }
 
 /* CSS Thème */
-
-.quiz{
-width: 50%;
-margin: auto;
-margin-top: 30px;
+select{
+background-color : white;
 }
 
 h2{
@@ -207,8 +207,6 @@ text-align: center;
 font-size: 28px;
 color: #ff9f10;
 }
-
-/* CSS Classement */
 
 table{
 margin: auto;
@@ -349,12 +347,12 @@ background-color: rgba(0, 0, 0, 0.4);
 }
 
 .messageBoxContent {
-background-color: #f5f5f5;
+background-color: white;
 margin: auto;
-padding: 20px;
+padding: 10px;
 border: 1px solid #ccc;
 border-radius: 5px;
-width: 300px;
+width: auto;
 text-align: center;
 position: fixed;
 top: 50%;
@@ -366,7 +364,12 @@ z-index: 9999;
 .messageText {
 font-size: 18px;
 color: #333;
-margin-bottom: 20px;
+margin-top: 5px;
+margin-bottom: 15px;
+}
+
+.messageBoxContent ul {
+text-align : left;
 }
 
 .messageBoxContent button, .messageBoxContent a {
@@ -391,8 +394,17 @@ border-radius: 5px;
 width: auto;
 text-align: center;
 position: fixed;
-top: 50%;
+top: 92%;
 left: 92%;
 transform: translate(-50%, -50%);
 z-index: 9999;
+background-color: #ff9f10;
+border-radius: 8px;
+font-size : 15px;
+color: white;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.creation-annonce:hover{
+background-color: #ccc;
 }

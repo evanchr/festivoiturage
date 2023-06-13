@@ -14,11 +14,12 @@ if (isset($_POST['envoyer'])) {
             header('Location:Connexion.php?erreur=1');
         } else {
             try {
-                $pdo = new PDO('mysql:servername=localhost; dbname=retxaqbg_festicovoit; charset=utf8mb4', 'retxaqbg_evan', 'Evan.Mateo1234');
+                //$pdo = new PDO('mysql:servername=localhost; dbname=retxaqbg_festicovoit; charset=utf8mb4', 'retxaqbg_evan', 'Evan.Mateo1234');
+                $pdo = new PDO('mysql:host=localhost; dbname=festicovoit; charset=utf8mb4', 'root', 'root');
 
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $user = new User("", "", 0, $login, $password,"");
+                $user = new User("", "", 0, $login, $password, "");
                 $userDAO = new UserDAO($pdo);
                 $exists = $userDAO->exists($user);
 
@@ -38,7 +39,7 @@ if (isset($_POST['envoyer'])) {
                             $_SESSION['pseudo'] = $ligne['pseudo'];
                             $_SESSION['password'] = $ligne['password'];
                             $admin = $userDAO->admin($user);
-                            if($admin){
+                            if ($admin) {
                                 $_SESSION['admin'] = $ligne['admin'];
                             }
                             header('Location:Home.php');

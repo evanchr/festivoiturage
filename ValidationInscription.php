@@ -20,7 +20,7 @@ if (isset($_POST['envoyer'])) {
             header('Location:Inscription.php?erreur=1&admin=oui'); //il manque des champs
             exit();
         } else {
-            header('Location:Inscription.php?erreur=1'); 
+            header('Location:Inscription.php?erreur=1');
             exit();
         }
     }
@@ -29,12 +29,13 @@ if (isset($_POST['envoyer'])) {
             header('Location:Inscription.php?erreur=2&admin=oui'); //mots de passe différents
             exit();
         } else {
-            header('Location:Inscription.php?erreur=2'); 
+            header('Location:Inscription.php?erreur=2');
             exit();
         }
     } else {
         try {
-            $pdo = new PDO('mysql:servername=localhost; dbname=retxaqbg_festicovoit; charset=utf8mb4', 'retxaqbg_evan', 'Evan.Mateo1234');
+            //$pdo = new PDO('mysql:servername=localhost; dbname=retxaqbg_festicovoit; charset=utf8mb4', 'retxaqbg_evan', 'Evan.Mateo1234');
+            $pdo = new PDO('mysql:host=localhost; dbname=festicovoit; charset=utf8mb4', 'root', 'root');
 
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -62,7 +63,7 @@ if (isset($_POST['envoyer'])) {
                     header('Location:Inscription.php?erreur=4&admin=oui'); //pas réussi à rentrer infos dans la bd sans raison
                     exit();
                 } else {
-                    header('Location:Inscription.php?erreur=4'); 
+                    header('Location:Inscription.php?erreur=4');
                     exit();
                 }
             } else {
