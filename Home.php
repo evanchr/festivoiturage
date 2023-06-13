@@ -89,7 +89,7 @@ require_once 'DAO/FestivalDAO.php';
 		?>
 	</div>
 
-	<a href="AjoutVehicule.php"><input class="envoi" type="submit" name="supprimer" value="Créer une annonce"></a>
+	<a href="AjoutVehicule.php"><input class="creation-annonce" type="submit" name="supprimer" value="Créer une annonce"></a>
 </body>
 
 </html>

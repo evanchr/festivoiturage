@@ -382,3 +382,17 @@ cursor: pointer;
 .messageBoxContent button:hover, .messageBoxContent a:hover {
 background-color: #ccc;
 }
+
+.creation-annonce {
+background-color: #f5f5f5;
+padding: 20px;
+border: 1px solid #ccc;
+border-radius: 5px;
+width: auto;
+text-align: center;
+position: fixed;
+top: 50%;
+left: 92%;
+transform: translate(-50%, -50%);
+z-index: 9999;
+}

@@ -96,7 +96,7 @@ require_once 'DAO/UserDAO.php';
             </table>
         </div>
         <div id="boutonsMembre">
-            <a href="Inscription.php?"><input class="envoi" type="submit" value="Ajouter un utilisateur"></a>
+            <a href="Inscription.php"><input class="envoi" type="submit" value="Ajouter un utilisateur"></a>
         </div>
     </div>
 </body>
