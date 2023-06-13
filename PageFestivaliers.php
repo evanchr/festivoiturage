@@ -70,6 +70,9 @@ require_once 'DAO/FestivalDAO.php';
     <div class="grid-container">
 
     </div>
+
+    <a href="AjoutFestivalier.php"><input class="creation-annonce" type="submit" name="supprimer" value="Créer une annonce festivalier"></a>
+
 </body>
 
 </html>

@@ -102,6 +102,9 @@ require_once 'DAO/VehiculeDAO.php';
         }
         ?>
     </div>
+
+    <a href="AjoutVehicule.php"><input class="creation-annonce" type="submit" name="supprimer" value="Créer une annonce véhicule"></a>
+
 </body>
 
 </html>
