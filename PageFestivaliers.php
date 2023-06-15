@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-use DAO\FestivalDAO;
+use DAO\FestivalierDAO;
 
-require_once 'DAO/FestivalDAO.php';
+require_once 'DAO/FestivalierDAO.php';
 
 ?>
 
@@ -21,7 +21,13 @@ require_once 'DAO/FestivalDAO.php';
 </head>
 
 <body>
-
+    <script>
+        // Fonction pour fermer les fenêtres de messages
+        function closeBox() {
+            var box = document.getElementById('idBox');
+            box.style.display = 'none';
+        }
+    </script>
     <div class="head">
         <h1>Festi'Covoit</h1>
         <div class="connexion">
@@ -37,6 +43,14 @@ require_once 'DAO/FestivalDAO.php';
                 echo '<a href="Inscription.php"><h4>S\'inscrire</h4></a>';
                 echo '<h4> - </h4>';
                 echo "<a href='Connexion.php'><h4>Connexion</h4></a>";
+            }
+            if (isset($_GET['ajout'])) {
+                echo "<div id='idBox' class='messageBox'>
+                        <div class='messageBoxContent'>
+                            <p class='messageText'>L'annonce de " . $_GET['ajout'] . " a bien été publiée.</p>
+                            <button onclick='closeBox()'>Fermer</button>
+                        </div>
+                    </div>";
             }
             ?>
             <img src="Images/User.png" alt="bouton connexion">
@@ -62,13 +76,31 @@ require_once 'DAO/FestivalDAO.php';
         ?>
     </div>
 
-    <p class="intro">Bienvenue sur Festi'Covoit ! Si vous souhaitez vous rendre à un festival de manière plus écologique et plus économique vous êtes au bon endroit ! <br>
-        Ici, vous pouvez réserver une place dans le véhicule d'un autre festivalier qui se rend au même festival que vous. Cela vous permettra d'économiser sur le prix du trajet,
-        de vous déplacer de manière plus écologique et surtout de rencontrer de super personnes. <br>A l'inverse, s'il vous reste de la place dans votre véhicule, vous pouvez créer une annonce
-        avec le nombre de personnes que vous pouvez emmener, le festival où vous vous rendez et à quelles dates. Il ne vous reste plus qu'à attendre la reservation de festivaliers ! </p>
+    <p class="intro">Ici vous pouvez poster une annonce indiquant que vous êtes à la recherche d'un véhicule et les propriétaires de véhicules peuvent alors vous contacter en sélectionnant votre annonce. </br>
+        Sur Festi'Covoit, la réservation est complétement gratuite, mais vous pouvez bien-sûr préciser dans votre annonce si vous souhaitez diviser les frais entre tous les passagers.<br>
+        Si vous souhaitez consulter toutes vos annonces, cliquez sur votre pseudo en haut à droite.</p>
 
+    <h2>Liste des annonces de festivaliers :</h2>
     <div class="grid-container">
-
+        <?php
+        $festivaliers = FestivalierDAO::listeAll();
+        foreach ($festivaliers as $festivalier) {
+            echo "<div class='card'>";
+            echo "<div class='card-info'>";
+            echo "<img src='Images/Festivaliers.png' alt='icone festivalier'>";
+            echo "<h3>" . $festivalier['prenom'] . " " . $festivalier['nom'] . "</h3>";
+            echo "<h4>Festival concerné : " . $festivalier['festival'] . "</h4>";
+            echo "<p><b>Âge : </b>" . $festivalier['age'] . " ans</p>";
+            echo "<p><b>Genre : </b>" . $festivalier['genre'] . "</p>";
+            echo "<p><b>Départ : </b>" . $festivalier['ville'] . " le " . $festivalier['dateAller'] . "</p>";
+            if ($festivalier['dateRetour'] != "0000-00-00") {
+                echo "<p><b>Retour le : </b>" . $festivalier['dateRetour'] . "</p>";
+            }
+            echo "<p><b>Détails de l'annonce : </b>" . $festivalier['description'] . "</p>";
+            echo "</div>";
+            echo "</div>";
+        }
+        ?>
     </div>
 
     <a href="AjoutFestivalier.php"><input class="creation-annonce" type="submit" name="supprimer" value="Créer une annonce festivalier"></a>
