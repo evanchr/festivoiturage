@@ -94,7 +94,11 @@ if (!isset($_SESSION['pseudo'])) {
 			}
 			echo "<p><b>Nombre de places disponibles : </b>" . $vehicule['places'] . "</p>";
 			echo "<p><b>Propriétaire du véhicule : </b>" . $vehicule['proprietaire'] . "</p>";
-			echo "<p><b>Détails de l'annonce : </b>" . $vehicule['description'] . "</p>";
+			echo "<p><b>Détails de l'annonce : </b>" . $vehicule['description'] . "</p><br>";
+			echo "<div class='boutonsannonce'>";
+			echo "<a href='ValidationModificationVehicule.php'><input class='envoi' type='submit' value='Modifier'></a>";
+			echo "<a href='ValidationSuppressionVehicule.php'><input class='envoi' type='submit' value='Supprimer'></a>";
+			echo "</div>";
 			echo "</div>";
 			echo "</div>";
 		}
@@ -112,6 +116,10 @@ if (!isset($_SESSION['pseudo'])) {
                 echo "<p><b>Retour le : </b>" . $festivalier['dateRetour'] . "</p>";
             }
             echo "<p><b>Détails de l'annonce : </b>" . $festivalier['description'] . "</p>";
+			echo "<div class='boutonsannonce'>";
+			echo "<a href='ValidationModificationFestivalier.php'><input class='envoi' type='submit' value='Modifier'></a>";
+			echo "<a href='ValidationSuppressionFestivalier.php'><input class='envoi' type='submit' value='Supprimer'></a>";
+			echo "</div>";
             echo "</div>";
             echo "</div>";
         }

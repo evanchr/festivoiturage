@@ -412,3 +412,10 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 .creation-annonce:hover{
 background-color: #ccc;
 }
+
+.boutonsannonce {
+  display: flex;
+  justify-content: center;
+  gap : 10px;
+  margin: auto;
+}
