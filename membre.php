@@ -98,7 +98,7 @@ if (!isset($_SESSION['pseudo'])) {
 			echo "</div>";
 			echo "</div>";
 		}
-		$festivaliers = FestivalierDAO::listeAll();
+		$festivaliers = FestivalierDAO::listeAllFromUser($_SESSION['pseudo']);
         foreach ($festivaliers as $festivalier) {
             echo "<div class='card'>";
             echo "<div class='card-info'>";

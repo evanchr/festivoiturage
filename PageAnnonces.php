@@ -1,9 +1,21 @@
 <?php
 session_start();
 
-use DAO\FestivalDAO;
+use DAO\FestivalierDAO;
+use DAO\VehiculeDAO;
 
-require_once 'DAO/FestivalDAO.php';
+require_once 'DAO/FestivalierDAO.php';
+require_once 'DAO/VehiculeDAO.php';
+
+// Obtention de toutes les annonces de festivaliers et de véhicules
+$festivaliers = FestivalierDAO::listeAll();
+$vehicules = VehiculeDAO::listeAll();
+
+// Fusion des deux tableaux en un seul
+$annonces = array_merge($festivaliers, $vehicules);
+
+// Mélange aléatoire des annonces
+shuffle($annonces);
 
 ?>
 
@@ -62,13 +74,43 @@ require_once 'DAO/FestivalDAO.php';
         ?>
     </div>
 
-    <p class="intro">Bienvenue sur Festi'Covoit ! Si vous souhaitez vous rendre à un festival de manière plus écologique et plus économique vous êtes au bon endroit ! <br>
-        Ici, vous pouvez réserver une place dans le véhicule d'un autre festivalier qui se rend au même festival que vous. Cela vous permettra d'économiser sur le prix du trajet,
-        de vous déplacer de manière plus écologique et surtout de rencontrer de super personnes. <br>A l'inverse, s'il vous reste de la place dans votre véhicule, vous pouvez créer une annonce
-        avec le nombre de personnes que vous pouvez emmener, le festival où vous vous rendez et à quelles dates. Il ne vous reste plus qu'à attendre la reservation de festivaliers ! </p>
+    <p class="intro">Vous pouvez retrouver ici toutes les annonces disponibles sur Festi'Covoit. Vous pouvez également affiner vos recherches en fonction de vos critères !<br>
+        Si vous souhaitez consulter toutes vos annonces, cliquez sur votre pseudo en haut à droite.</p>
 
     <div class="grid-container">
-
+        <?php
+        foreach ($annonces as $annonce) {
+            echo "<div class='card'>";
+            echo "<div class='card-info'>";
+            if (isset($annonce['type'])) {
+                // C'est une annonce de véhicule
+                echo "<img src='Images/Voiture.png' alt='icone voiture'>";
+                echo "<h3>" . $annonce['type'] . "</h3>";
+                echo "<h4>Festival concerné : " . $annonce['festival'] . "</h4>";
+                echo "<p><b>Départ : </b>" . $annonce['ville'] . " le " . $annonce['dateAller'] . "</p>";
+                if ($annonce['dateRetour'] != "0000-00-00") {
+                    echo "<p><b>Retour le : </b>" . $annonce['dateRetour'] . "</p>";
+                }
+                echo "<p><b>Nombre de places disponibles : </b>" . $annonce['places'] . "</p>";
+                echo "<p><b>Propriétaire du véhicule : </b>" . $annonce['proprietaire'] . "</p>";
+                echo "<p><b>Détails de l'annonce : </b>" . $annonce['description'] . "</p>";
+            } else {
+                // C'est une annonce de festivalier
+                echo "<img src='Images/Festivaliers.png' alt='icone festivalier'>";
+                echo "<h3>" . $annonce['prenom'] . " " . $annonce['nom'] . "</h3>";
+                echo "<h4>Festival concerné : " . $annonce['festival'] . "</h4>";
+                echo "<p><b>Âge : </b>" . $annonce['age'] . " ans</p>";
+                echo "<p><b>Genre : </b>" . $annonce['genre'] . "</p>";
+                echo "<p><b>Départ : </b>" . $annonce['ville'] . " le " . $annonce['dateAller'] . "</p>";
+                if ($annonce['dateRetour'] != "0000-00-00") {
+                    echo "<p><b>Retour le : </b>" . $annonce['dateRetour'] . "</p>";
+                }
+                echo "<p><b>Détails de l'annonce : </b>" . $annonce['description'] . "</p>";
+            }
+            echo "</div>";
+            echo "</div>";
+        }
+        ?>
     </div>
 </body>
 

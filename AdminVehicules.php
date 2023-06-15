@@ -51,7 +51,7 @@ require_once 'DAO/VehiculeDAO.php';
                 if (isset($_GET['supp'])) { //message de confirmation de la suppression du festival
                     echo "<div id='idBox' class='messageBox'>
                             <div class='messageBoxContent'>
-                                <p class='messageText'>Le festival " . $_GET['supp'] . " a bien été supprimé.</p>
+                                <p class='messageText'>Le véhicule " . $_GET['supp'] . " a bien été supprimé.</p>
                                 <button onclick='closeBox()'>Fermer</button>
                             </div>
                         </div>";
@@ -59,16 +59,16 @@ require_once 'DAO/VehiculeDAO.php';
                 if (isset($_GET['ajout'])) {
                     echo "<div id='idBox' class='messageBox'>
                             <div class='messageBoxContent'>
-                                <p class='messageText'>Le festival " . $_GET['ajout'] . " a bien été ajouté.</p>
+                                <p class='messageText'>Le véhicule " . $_GET['ajout'] . " a bien été ajouté.</p>
                                 <button onclick='closeBox()'>Fermer</button>
                             </div>
                         </div>";
                 }
                 if (isset($_GET['confirmer'])){
                     echo "<div class='messageBoxContent'>
-                    <p class='messageText'>Voulez-vous vraiment supprimer le festival ".$_GET['confirmer']." ?</p>
-                    <a href='ValidationSuppressionFestival.php?nom=".$_GET['confirmer']."&confirmer=oui'>Oui</a>
-                    <a href='AdminFestivals.php'>Annuler</a>
+                    <p class='messageText'>Voulez-vous vraiment supprimer le véhicule ".$_GET['confirmer']." ?</p>
+                    <a href='ValidationSuppressionVehicule.php?id=".$_GET['confirmer']."&confirmer=oui'>Oui</a>
+                    <a href='AdminVehicules.php'>Annuler</a>
                   </div>";
                 }
                 ?>
@@ -97,11 +97,14 @@ require_once 'DAO/VehiculeDAO.php';
                     echo "<td>" . $vehicule['dateRetour'] . "</td>";
                     echo "<td>" . $vehicule['description'] . "</td>";
                     echo "<td>" . $vehicule['proprietaire'] . "</td>";
-                    echo "<td><a href='ValidationSuppressionVehicule.php?nom=" . $vehicule['id'] . "'><img src='Images/Supp.png' alt='bouton supprimer' class='modifier'></a></td>";
+                    echo "<td><a href='ValidationSuppressionVehicule.php?id=" . $vehicule['id'] . "'><img src='Images/Supp.png' alt='bouton supprimer' class='modifier'></a></td>";
                     echo "</tr>";
                 }
                 ?>
             </table>
+        </div>
+        <div id="boutonsMembre">
+            <a href="AjoutVehicule.php"><input class="envoi" type="submit" value="Ajouter un vehicule"></a>
         </div>
     </div>
 </body>

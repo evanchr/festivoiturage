@@ -32,7 +32,7 @@ require_once 'DAO/FestivalierDAO.php';
             <li><a href="AdminFestivals.php">Festivals</a></li>
             <li><a href="AdminUsers.php">Utilisateurs</a></li>
             <li><a href="AdminAdmins.php">Administrateurs</a></li>
-            <li><a href="Adminfestivaliers.php">Annonces véhicules</a></li>
+            <li><a href="AdminVehicules.php">Annonces véhicules</a></li>
             <li class="active"><a href="AdminFestivaliers.php">Annonces festivaliers</a></li>
         </ul>
     </div>
@@ -59,16 +59,16 @@ require_once 'DAO/FestivalierDAO.php';
                 if (isset($_GET['ajout'])) {
                     echo "<div id='idBox' class='messageBox'>
                             <div class='messageBoxContent'>
-                                <p class='messageText'>Le festival " . $_GET['ajout'] . " a bien été ajouté.</p>
+                                <p class='messageText'>Le festivalier " . $_GET['ajout'] . " a bien été ajouté.</p>
                                 <button onclick='closeBox()'>Fermer</button>
                             </div>
                         </div>";
                 }
                 if (isset($_GET['confirmer'])){
                     echo "<div class='messageBoxContent'>
-                    <p class='messageText'>Voulez-vous vraiment supprimer le festival ".$_GET['confirmer']." ?</p>
-                    <a href='ValidationSuppressionFestival.php?nom=".$_GET['confirmer']."&confirmer=oui'>Oui</a>
-                    <a href='AdminFestivals.php'>Annuler</a>
+                    <p class='messageText'>Voulez-vous vraiment supprimer le festivalier ".$_GET['confirmer']." ?</p>
+                    <a href='ValidationSuppressionFestivalier.php?id=".$_GET['confirmer']."&confirmer=oui'>Oui</a>
+                    <a href='AdminFestivaliers.php'>Annuler</a>
                   </div>";
                 }
                 ?>
@@ -101,7 +101,7 @@ require_once 'DAO/FestivalierDAO.php';
                     echo "<td>" . $festivalier['dateRetour'] . "</td>";
                     echo "<td>" . $festivalier['description'] . "</td>";
                     echo "<td>" . $festivalier['createur'] . "</td>";
-                    echo "<td><a href='ValidationSuppressionFestivalier.php?nom=" . $festivalier['id'] . "'><img src='Images/Supp.png' alt='bouton supprimer' class='modifier'></a></td>";
+                    echo "<td><a href='ValidationSuppressionFestivalier.php?id=" . $festivalier['id'] . "'><img src='Images/Supp.png' alt='bouton supprimer' class='modifier'></a></td>";
                     echo "</tr>";
                 }
                 ?>

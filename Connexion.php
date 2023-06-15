@@ -30,9 +30,6 @@
 					<h4>S'inscrire</h4>
 				</a>
 			</p>
-			<p class="conditions">
-				*Le mot de passe doit faire entre 4 et 16 caractères, ne comporter que des chiffres, lettres, ou signes tels que le point, le tiret ou le signe #.
-			</p>
 			<?php
 			if (isset($_GET['erreur'])) {
 				if ($_GET['erreur'] == 1) {

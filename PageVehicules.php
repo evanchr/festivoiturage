@@ -47,7 +47,7 @@ require_once 'DAO/VehiculeDAO.php';
             if (isset($_GET['ajout'])) {
                 echo "<div id='idBox' class='messageBox'>
                         <div class='messageBoxContent'>
-                            <p class='messageText'>L'annonce de la " . $_GET['ajout'] . " a bien été publiée.</p>
+                            <p class='messageText'>L'annonce du véhicule " . $_GET['ajout'] . " a bien été publiée.</p>
                             <button onclick='closeBox()'>Fermer</button>
                         </div>
                     </div>";

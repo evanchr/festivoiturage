@@ -25,7 +25,12 @@ session_start();
 					<h4>Connexion</h4>
 				  </a>";
 		}
-		?>
+        if (isset($_SESSION['pseudo']) && isset($_SESSION['admin'])) {
+            echo '<a href="AdminUsers.php">
+                    <h4>Gérer</h4>
+                  </a>';
+        }
+        ?>
 	</div>
 
 	<?php

@@ -26,6 +26,13 @@ require_once 'DAO/FestivalDAO.php';
         <a href="Home.php">
             <h4>Accueil</h4>
         </a>
+        <?php
+        if (isset($_SESSION['pseudo']) && isset($_SESSION['admin'])) {
+            echo '<a href="AdminFestivaliers.php">
+                    <h4>Gérer</h4>
+                  </a>';
+        }
+        ?>
     </div>
 
     <form action="ValidationCreationFestivalier.php" method="POST">

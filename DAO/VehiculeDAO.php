@@ -97,15 +97,6 @@ class VehiculeDAO extends DAO {
         }
     }
 
-    public function getFestival(object $festival) {
-        $id = $festival->getId();
-        $connexion = $this->connect;
-        $pdostat = $connexion->prepare("SELECT * FROM vehicule WHERE id = :id");
-        $pdostat->bindValue(':id', $id);
-        $pdostat->execute();
-        return $pdostat;
-    }
-
     public static function listeAll() {
         $connexion = self::connectStatic();
         $pdostat = $connexion->prepare("SELECT * FROM vehicule ORDER BY id ASC");

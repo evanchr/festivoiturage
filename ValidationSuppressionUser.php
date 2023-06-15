@@ -25,6 +25,7 @@ try {
 
     $user = new User("", "", 0, $pseudo, "", "");
     $userDAO = new UserDAO($pdo);
+
     $exists = $userDAO->exists($user);
     $admin = $userDAO->admin($user);
 
