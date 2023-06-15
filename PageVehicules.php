@@ -76,10 +76,9 @@ require_once 'DAO/VehiculeDAO.php';
         ?>
     </div>
 
-    <p class="intro">Bienvenue sur Festi'Covoit ! Si vous souhaitez vous rendre à un festival de manière plus écologique et plus économique vous êtes au bon endroit ! <br>
-        Ici, vous pouvez réserver une place dans le véhicule d'un autre festivalier qui se rend au même festival que vous. Cela vous permettra d'économiser sur le prix du trajet,
-        de vous déplacer de manière plus écologique et surtout de rencontrer de super personnes. <br>A l'inverse, s'il vous reste de la place dans votre véhicule, vous pouvez créer une annonce
-        avec le nombre de personnes que vous pouvez emmener, le festival où vous vous rendez et à quelles dates. Il ne vous reste plus qu'à attendre la reservation de festivaliers ! </p>
+    <p class="intro">Ici vous pouvez réserver une place dans un véhicule qui se rend au même festival que vous. Ou alors publier une annonce afin de compléter votre véhicule. </br>
+        Sur Festi'Covoit, la réservation est complétement gratuite, mais vous pouvez bien-sûr préciser dans votre annonce si vous souhaitez diviser les frais entre tous les passagers.<br>
+        Si vous souhaitez consulter toutes vos annonces, cliquez sur votre pseudo en haut à droite.</p>
 
     <h2>Liste des annonces de véhicules :</h2>
     <div class="grid-container">
@@ -88,6 +87,7 @@ require_once 'DAO/VehiculeDAO.php';
         foreach ($vehicules as $vehicule) {
             echo "<div class='card'>";
             echo "<div class='card-info'>";
+            echo "<img src='Images/Voiture.png' alt='icone voiture'>";
             echo "<h3>" . $vehicule['type'] . "</h3>";
             echo "<h4>Festival concerné : " . $vehicule['festival'] . "</h4>";
             echo "<p><b>Départ : </b>" . $vehicule['ville'] . " le ".$vehicule['dateAller']."</p>";

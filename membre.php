@@ -1,5 +1,14 @@
 <?php
 session_start();
+
+use DAO\VehiculeDAO;
+use DAO\UserDAO;
+use DAO\FestivalierDAO;
+
+require_once 'DAO/VehiculeDAO.php';
+require_once 'DAO/UserDAO.php';
+require_once 'DAO/FestivalierDAO.php';
+
 if (!isset($_SESSION['pseudo'])) {
 	header('Location:Connexion.php');
 	exit();
@@ -30,6 +39,7 @@ if (!isset($_SESSION['pseudo'])) {
 		</a>
 	</div>
 
+	<br>
 	<fieldset>
 		<legend>Informations du compte :</legend>
 
@@ -63,6 +73,49 @@ if (!isset($_SESSION['pseudo'])) {
 	<div id="boutonsMembre">
 		<a href="ModificationUser.php"><input class="envoi" type="submit" value="Modifier mes informations"></a>
 		<a href="ValidationSuppressionUser.php"><input class="envoi" type="submit" name="supprimer" value="Supprimer mon compte"></a>
+	</div>
+	<br>
+	<hr>
+
+	<h2>Mes annonces :</h2>
+
+	<div class="grid-container">
+		<?php
+		$vehicules = VehiculeDAO::listeAllFromUser($_SESSION['pseudo']);
+		foreach ($vehicules as $vehicule) {
+			echo "<div class='card'>";
+			echo "<div class='card-info'>";
+			echo "<img src='Images/Voiture.png' alt='icone voiture'>";
+			echo "<h3>" . $vehicule['type'] . "</h3>";
+			echo "<h4>Festival concerné : " . $vehicule['festival'] . "</h4>";
+			echo "<p><b>Départ : </b>" . $vehicule['ville'] . " le " . $vehicule['dateAller'] . "</p>";
+			if ($vehicule['dateRetour'] != "0000-00-00") {
+				echo "<p><b>Retour le : </b>" . $vehicule['dateRetour'] . "</p>";
+			}
+			echo "<p><b>Nombre de places disponibles : </b>" . $vehicule['places'] . "</p>";
+			echo "<p><b>Propriétaire du véhicule : </b>" . $vehicule['proprietaire'] . "</p>";
+			echo "<p><b>Détails de l'annonce : </b>" . $vehicule['description'] . "</p>";
+			echo "</div>";
+			echo "</div>";
+		}
+		$festivaliers = FestivalierDAO::listeAll();
+        foreach ($festivaliers as $festivalier) {
+            echo "<div class='card'>";
+            echo "<div class='card-info'>";
+            echo "<img src='Images/Festivaliers.png' alt='icone festivalier'>";
+            echo "<h3>". $festivalier['prenom'] ." ". $festivalier['nom'] . "</h3>";
+            echo "<h4>Festival concerné : " . $festivalier['festival'] . "</h4>";
+            echo "<p><b>Âge : </b>" .$festivalier['age']." ans</p>";
+            echo "<p><b>Genre : </b>" .$festivalier['genre']."</p>";
+            echo "<p><b>Départ : </b>" . $festivalier['ville'] . " le " . $festivalier['dateAller'] . "</p>";
+            if ($festivalier['dateRetour'] != "0000-00-00") {
+                echo "<p><b>Retour le : </b>" . $festivalier['dateRetour'] . "</p>";
+            }
+            echo "<p><b>Détails de l'annonce : </b>" . $festivalier['description'] . "</p>";
+            echo "</div>";
+            echo "</div>";
+        }
+		?>
 	</div>
 </body>
 

@@ -112,6 +112,14 @@ class VehiculeDAO extends DAO {
         $pdostat->execute();
         return $pdostat->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public static function listeAllFromUser($pseudo) {
+        $connexion = self::connectStatic();
+        $pdostat = $connexion->prepare("SELECT * FROM vehicule WHERE proprietaire = :user ORDER BY id ASC");
+        $pdostat->bindValue(':user', $pseudo);
+        $pdostat->execute();
+        return $pdostat->fetchAll(\PDO::FETCH_ASSOC);
+    }
 }
 
 ?>

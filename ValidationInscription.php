@@ -39,7 +39,7 @@ if (isset($_POST['envoyer'])) {
 
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            if (isset($_SESSION['admin'])) {
+            if (isset($_GET['admin'])) {
                 $user = new User($nom, $prenom, $age, $login, $password1, 1);
             } else {
                 $user = new User($nom, $prenom, $age, $login, $password1, 0);

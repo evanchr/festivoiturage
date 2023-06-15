@@ -1,24 +1,26 @@
 <?php
 session_start();
 
-use DAO\VehiculeDAO;
+use DAO\FestivalierDAO;
 
-use models\Vehicule;
+use models\Festivalier;
 
 require_once 'models/Festival.php';
-require_once 'models/Vehicule.php';
+require_once 'models/Festivalier.php';
 require_once 'models/User.php';
 
 require_once 'DAO/FestivalDAO.php';
-require_once 'DAO/VehiculeDAO.php';
+require_once 'DAO/FestivalierDAO.php';
 require_once 'DAO/UserDAO.php';
 
 if (isset($_POST['envoyer'])) {
     $id = "";
-    $type = $_POST['type'];
-    $places = trim($_POST['places']);
-    $ville = $_POST['ville'];
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $age = $_POST['age'];
+    $genre = $_POST['genre'];
     $festival = $_POST['festival'];
+    $ville = $_POST['ville'];
     $dateAller = $_POST['dateAller'];
     if (isset($_POST['dateRetour'])) {
         $dateRetour = $_POST['dateRetour'];
@@ -26,9 +28,9 @@ if (isset($_POST['envoyer'])) {
         $dateRetour = NULL;
     }
     $description = $_POST['description'];
-    $proprietaire = $_SESSION['pseudo'];
+    $createur = $_SESSION['pseudo'];
     if ($_POST['dateRetour'] && $dateAller >= $dateRetour) {
-        header('Location:AjoutVehicule.php?erreur=1'); //erreur de dates
+        header('Location:AjoutFestivalier.php?erreur=1'); //erreur de dates
         exit();
     } else {
         try {
@@ -37,21 +39,21 @@ if (isset($_POST['envoyer'])) {
 
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $vehicule = new Vehicule(7, $type, $places, $ville, $festival, $dateAller, $dateRetour, $description, $proprietaire);
-            $vehiculeDAO = new VehiculeDAO($pdo);
-            $exists = $vehiculeDAO->exists($vehicule);
+            $festivalier = new Festivalier(2, $nom, $prenom, $age, $genre, $festival, $ville, $dateAller, $dateRetour, $description, $createur);
+            $festivalierDAO = new FestivalierDAO($pdo);
+            $exists = $festivalierDAO->exists($festivalier);
 
             if ($exists) {
-                header('Location:AjoutVehicule.php?erreur=2'); //vehicule déjà existant
+                header('Location:AjoutFestivalier.php?erreur=2'); //festivalier déjà existant
                 exit();
             } else {
-            $create = $vehiculeDAO->create($vehicule);
+            $create = $festivalierDAO->create($festivalier);
             }
             if (!$create) {
-                header('Location:AjoutVehicule.php?erreur=3'); //pas réussi à rentrer infos dans la bd sans raison
+                header('Location:AjoutFestivalier.php?erreur=3'); //pas réussi à rentrer infos dans la bd sans raison
                 exit();
             } else {
-                header('Location:PageVehicules.php?ajout='.$type);
+                header('Location:PageFestivaliers.php?ajout='.$prenom);
                 exit();
             }
         } catch (PDOException $e) {

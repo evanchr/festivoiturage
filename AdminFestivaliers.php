@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-use DAO\FestivalDAO;
+use DAO\FestivalierDAO;
 
-require_once 'DAO/FestivalDAO.php';
+require_once 'DAO/FestivalierDAO.php';
 
 ?>
 
@@ -32,7 +32,7 @@ require_once 'DAO/FestivalDAO.php';
             <li><a href="AdminFestivals.php">Festivals</a></li>
             <li><a href="AdminUsers.php">Utilisateurs</a></li>
             <li><a href="AdminAdmins.php">Administrateurs</a></li>
-            <li><a href="AdminVehicules.php">Annonces véhicules</a></li>
+            <li><a href="Adminfestivaliers.php">Annonces véhicules</a></li>
             <li class="active"><a href="AdminFestivaliers.php">Annonces festivaliers</a></li>
         </ul>
     </div>
@@ -73,19 +73,42 @@ require_once 'DAO/FestivalDAO.php';
                 }
                 ?>
                 <tr>
+                    <th>ID</th>
                     <th>Nom</th>
-                    <th>Date de début</th>
-                    <th>Date de fin</th>
+                    <th>Prénom</th>
+                    <th>Age</th>
+                    <th>Genre</th>
+                    <th>Festival</th>
                     <th>Ville</th>
-                    <th>Photo</th>
-                    <th>Modifier</th>
+                    <th>Date aller</th>
+                    <th>Date retour</th>
+                    <th>Description</th>
+                    <th>Créateur</th>
                     <th>Supprimer</th>
                 </tr>
-              
+                <?php
+                $festivaliers = FestivalierDAO::listeAll();
+                foreach ($festivaliers as $festivalier) {
+                    echo "<tr>";
+                    echo "<td>" . $festivalier['id'] . "</td>";
+                    echo "<td>" . $festivalier['nom'] . "</td>";
+                    echo "<td>" . $festivalier['prenom'] . "</td>";
+                    echo "<td>" . $festivalier['age'] . "</td>";
+                    echo "<td>" . $festivalier['genre'] . "</td>";
+                    echo "<td>" . $festivalier['festival'] . "</td>";
+                    echo "<td>" . $festivalier['ville'] . "</td>";
+                    echo "<td>" . $festivalier['dateAller'] . "</td>";
+                    echo "<td>" . $festivalier['dateRetour'] . "</td>";
+                    echo "<td>" . $festivalier['description'] . "</td>";
+                    echo "<td>" . $festivalier['createur'] . "</td>";
+                    echo "<td><a href='ValidationSuppressionFestivalier.php?nom=" . $festivalier['id'] . "'><img src='Images/Supp.png' alt='bouton supprimer' class='modifier'></a></td>";
+                    echo "</tr>";
+                }
+                ?>
             </table>
         </div>
         <div id="boutonsMembre">
-            <a href="AjoutFestival.php"><input class="envoi" type="submit" value="Ajouter un festival"></a>
+            <a href="AjoutFestivalier.php"><input class="envoi" type="submit" value="Ajouter un festivalier"></a>
         </div>
     </div>
 </body>

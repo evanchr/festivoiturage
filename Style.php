@@ -185,6 +185,10 @@ font-size: 15px;
 margin: 5px 0;
 }
 
+.card-info img {
+width : 150px;
+}
+
 .content{
 position: relative;
 color: #ff9f10;
