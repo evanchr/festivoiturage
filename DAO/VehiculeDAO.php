@@ -52,7 +52,7 @@ class VehiculeDAO extends DAO {
     }
 
     // mettre à jour une annonce véhicule
-    public function update(object $vehicule, String $oldtype) {
+    public function update(object $vehicule, String $oldid) {
         $id = $vehicule->getId();
         $type = $vehicule->getType();
         $places = $vehicule->getPlaces();
@@ -61,10 +61,9 @@ class VehiculeDAO extends DAO {
         $dateAller = $vehicule->getDateAller();
         $dateRetour = $vehicule-> getDateRetour();
         $description = $vehicule-> getDescription();
-        $proprietaire = $vehicule-> getProprietaire();
         $connexion = $this->connect;
-        $pdostat = $connexion->prepare("UPDATE vehicule SET id = :id, type = :type, places = :places, dateAller = :dateAller, dateRetour = :dateRetour, description =:description,proprietaire =:proprietaire WHERE id = :id");
-        $pdostat->bindValue(':id', $id);
+        $pdostat = $connexion->prepare("UPDATE vehicule SET type = :type, places = :places, ville = :ville, festival = :festival, dateAller = :dateAller, dateRetour = :dateRetour, description =:description WHERE vehicule.id = :oldid");
+        $pdostat->bindValue(':oldid', $oldid);
         $pdostat->bindValue(':type', $type);
         $pdostat->bindValue(':places', $places);
         $pdostat->bindValue(':ville', $ville);
@@ -72,7 +71,6 @@ class VehiculeDAO extends DAO {
         $pdostat->bindValue(':dateAller', $dateAller);
         $pdostat->bindValue(':dateRetour', $dateRetour);
         $pdostat->bindValue(':description', $description);
-        $pdostat->bindValue(':proprietaire', $proprietaire);
         $pdostat->execute();
         if($pdostat->rowCount()==0){
             return false;

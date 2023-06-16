@@ -100,6 +100,14 @@ if (!isset($_SESSION['pseudo'])) {
 					</div>
 				</div>";
 		}
+		if (isset($_GET['updateV'])) { 
+			echo "<div id='idBox' class='messageBox'>
+					<div class='messageBoxContent'>
+						<p class='messageText'>L'annonce du véhicule " . $_GET['updateV'] . " a bien été mis à jour.</p>
+						<button onclick='closeBox()'>Fermer</button>
+					</div>
+				</div>";
+		}
 		?>
 	</fieldset>
 
@@ -129,7 +137,7 @@ if (!isset($_SESSION['pseudo'])) {
 			echo "<p><b>Propriétaire du véhicule : </b>" . $vehicule['proprietaire'] . "</p>";
 			echo "<p><b>Détails de l'annonce : </b>" . $vehicule['description'] . "</p><br>";
 			echo "<div class='boutonsannonce'>";
-			echo "<a href='ModificationVehicule.php'><input class='envoi' type='submit' value='Modifier'></a>";
+			echo "<a href='ModificationVehicule.php?id=".$vehicule['id']."'><input class='envoi' type='submit' value='Modifier'></a>";
 			echo "<a href='ValidationSuppressionVehicule.php?id=".$vehicule['id']."&membre=oui'><input class='envoi' type='submit' value='Supprimer'></a>";
 			echo "</div>";
 			echo "</div>";
