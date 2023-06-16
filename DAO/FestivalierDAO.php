@@ -28,7 +28,6 @@ class FestivalierDAO extends DAO
 
     // Créer une annonce festivalier
     public function create(object $festivalier){
-        $id = $festivalier->getId();
         $nom = $festivalier->getNom();
         $prenom = $festivalier->getPrenom();
         $age = $festivalier->getAge();
@@ -40,8 +39,7 @@ class FestivalierDAO extends DAO
         $description = $festivalier->getDescription();
         $createur = $festivalier->getCreateur();
         $connexion = $this->connect;
-        $pdostat = $connexion->prepare("INSERT INTO festivalier (id, nom, prenom, age, genre, festival, ville, dateAller, dateRetour, description, createur) VALUES (:id, :nom, :prenom, :age, :genre, :festival, :ville, :dateAller, :dateRetour, :description, :createur)");
-        $pdostat->bindValue(':id', $id);
+        $pdostat = $connexion->prepare("INSERT INTO festivalier (nom, prenom, age, genre, festival, ville, dateAller, dateRetour, description, createur) VALUES (:nom, :prenom, :age, :genre, :festival, :ville, :dateAller, :dateRetour, :description, :createur)");
         $pdostat->bindValue(':nom', $nom);
         $pdostat->bindValue(':prenom', $prenom);
         $pdostat->bindValue(':age', $age);

@@ -14,7 +14,6 @@ require_once 'DAO/FestivalierDAO.php';
 require_once 'DAO/UserDAO.php';
 
 if (isset($_POST['envoyer'])) {
-    $id = "";
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $age = $_POST['age'];
@@ -39,7 +38,7 @@ if (isset($_POST['envoyer'])) {
 
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $festivalier = new Festivalier(2, $nom, $prenom, $age, $genre, $festival, $ville, $dateAller, $dateRetour, $description, $createur);
+            $festivalier = new Festivalier("", $nom, $prenom, $age, $genre, $festival, $ville, $dateAller, $dateRetour, $description, $createur);
             $festivalierDAO = new FestivalierDAO($pdo);
             $exists = $festivalierDAO->exists($festivalier);
 

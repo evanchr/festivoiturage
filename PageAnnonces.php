@@ -46,7 +46,7 @@ shuffle($annonces);
                 echo "</a></h4>";
             }
             if (!isset($_SESSION['pseudo'])) {
-                echo '<a href="Inscription.php"><h4>S\'inscrire</h4></a>';
+                echo '<a href="AjoutUser.php"><h4>S\'inscrire</h4></a>';
                 echo '<h4> - </h4>';
                 echo "<a href='Connexion.php'><h4>Connexion</h4></a>";
             }

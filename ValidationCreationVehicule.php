@@ -37,7 +37,7 @@ if (isset($_POST['envoyer'])) {
 
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $vehicule = new Vehicule(7, $type, $places, $ville, $festival, $dateAller, $dateRetour, $description, $proprietaire);
+            $vehicule = new Vehicule("", $type, $places, $ville, $festival, $dateAller, $dateRetour, $description, $proprietaire);
             $vehiculeDAO = new VehiculeDAO($pdo);
             $exists = $vehiculeDAO->exists($vehicule);
 

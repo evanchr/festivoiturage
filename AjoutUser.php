@@ -35,9 +35,9 @@ session_start();
 
 	<?php
 	if(isset($_GET['admin'])){
-		echo "<form action='ValidationInscription.php?admin=oui' method='post'>";
+		echo "<form action='ValidationCreationUser.php?admin=oui' method='post'>";
 	} else {
-		echo "<form action='ValidationInscription.php' method='post'>";
+		echo "<form action='ValidationCreationUser.php' method='post'>";
 	}
 	?>
 		<fieldset>

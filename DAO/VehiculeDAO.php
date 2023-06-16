@@ -25,7 +25,6 @@ class VehiculeDAO extends DAO {
 
     // créer une annonce véhicule
     public function create(object $vehicule) {
-        $id = $vehicule->getId();
         $type = $vehicule->getType();
         $places = $vehicule->getPlaces();
         $ville = $vehicule->getVille();
@@ -35,9 +34,7 @@ class VehiculeDAO extends DAO {
         $description = $vehicule-> getDescription();
         $proprietaire = $vehicule-> getProprietaire();
         $connexion = $this->connect;
-        $pdostat = $connexion->prepare("INSERT INTO vehicule (id, type, places, ville, festival, dateAller, dateRetour, description, proprietaire) VALUES (:id, :type, :places, :ville, :festival, :dateAller, :dateRetour, :description, :proprietaire)");
-        //INSERT INTO `vehicule` (`id`, `type`, `places`, `ville`, `festival`, `dateAller`, `dateRetour`, `description`, `proprietaire`) VALUES ('', 'peugeot 208', '3', 'rennes (35)', 'Terres du son', '2023-07-06', NULL, 'Test description', 'evan');
-        $pdostat->bindValue(':id', $id);
+        $pdostat = $connexion->prepare("INSERT INTO vehicule (type, places, ville, festival, dateAller, dateRetour, description, proprietaire) VALUES (:type, :places, :ville, :festival, :dateAller, :dateRetour, :description, :proprietaire)");
         $pdostat->bindValue(':type', $type);
         $pdostat->bindValue(':places', $places);
         $pdostat->bindValue(':ville', $ville);

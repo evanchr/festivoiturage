@@ -68,7 +68,7 @@ require_once 'DAO/UserDAO.php';
         </table>
     </div>
     <div id="boutonsMembre">
-        <a href="Inscription.php?admin=oui"><input class="envoi" type="submit" value="Ajouter un administrateur"></a>
+        <a href="AjoutUser.php?admin=oui"><input class="envoi" type="submit" value="Ajouter un administrateur"></a>
     </div>
     </div>
 </body>

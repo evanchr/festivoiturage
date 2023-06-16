@@ -17,19 +17,19 @@ if (isset($_POST['envoyer'])) {
     $password2 = trim($_POST['pass2']);
     if ($nom === '' || $prenom === '' || $age === '' || $login === '' || $password1 === '' || $password2 === '') {
         if (isset($_GET['admin'])) {
-            header('Location:Inscription.php?erreur=1&admin=oui'); //il manque des champs
+            header('Location:AjoutUser.php?erreur=1&admin=oui'); //il manque des champs
             exit();
         } else {
-            header('Location:Inscription.php?erreur=1');
+            header('Location:AjoutUser.php?erreur=1');
             exit();
         }
     }
     if ($password1 != $password2) {
         if (isset($_GET['admin'])) {
-            header('Location:Inscription.php?erreur=2&admin=oui'); //mots de passe différents
+            header('Location:AjoutUser.php?erreur=2&admin=oui'); //mots de passe différents
             exit();
         } else {
-            header('Location:Inscription.php?erreur=2');
+            header('Location:AjoutUser.php?erreur=2');
             exit();
         }
     } else {
@@ -49,10 +49,10 @@ if (isset($_POST['envoyer'])) {
 
             if ($exists) {
                 if (isset($_GET['admin'])) {
-                    header('Location:Inscription.php?erreur=3&admin=oui'); //pseudo existe deja dans la base
+                    header('Location:AjoutUser.php?erreur=3&admin=oui'); //pseudo existe deja dans la base
                     exit();
                 } else {
-                    header('Location:Inscription.php?erreur=3');
+                    header('Location:AjoutUser.php?erreur=3');
                     exit();
                 }
             } else {
@@ -60,10 +60,10 @@ if (isset($_POST['envoyer'])) {
             }
             if (!$create) {
                 if (isset($_GET['admin'])) {
-                    header('Location:Inscription.php?erreur=4&admin=oui'); //pas réussi à rentrer infos dans la bd sans raison
+                    header('Location:AjoutUser.php?erreur=4&admin=oui'); //pas réussi à rentrer infos dans la bd sans raison
                     exit();
                 } else {
-                    header('Location:Inscription.php?erreur=4');
+                    header('Location:AjoutUser.php?erreur=4');
                     exit();
                 }
             } else {
