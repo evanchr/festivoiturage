@@ -43,7 +43,7 @@ require_once 'DAO/FestivalierDAO.php';
                 <?php
                 if (isset($_GET['erreur'])) {
                     if ($_GET['erreur'] == 1) {
-                        echo '<i>Ce festival n\'existe pas donc vous ne pouvez pas le supprimer.</i>'; //impossible en théorie
+                        echo '<i>Ce festivalier n\'existe pas donc vous ne pouvez pas le supprimer.</i>'; //impossible en théorie
                     } else if ($_GET['erreur'] == 2) {
                         echo '<i>La suppression a échoué pour une raison inconnue.</i>';
                     }
@@ -51,7 +51,7 @@ require_once 'DAO/FestivalierDAO.php';
                 if (isset($_GET['supp'])) { //message de confirmation de la suppression du festival
                     echo "<div id='idBox' class='messageBox'>
                             <div class='messageBoxContent'>
-                                <p class='messageText'>Le festival " . $_GET['supp'] . " a bien été supprimé.</p>
+                                <p class='messageText'>Le festivalier " . $_GET['supp'] . " a bien été supprimé.</p>
                                 <button onclick='closeBox()'>Fermer</button>
                             </div>
                         </div>";

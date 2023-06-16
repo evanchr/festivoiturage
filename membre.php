@@ -57,6 +57,10 @@ if (!isset($_SESSION['pseudo'])) {
 				echo '<i>Vous ne pouvez pas supprimer un compte administrateur.</i>';
 			} else if ($_GET['erreur'] == 3) {
 				echo '<i>La suppression a échoué pour une raison inconnue.</i>';
+			} else if ($_GET['erreur'] == 4) {
+				echo '<i>Ce festivalier n\'existe pas donc vous ne pouvez pas le supprimer.</i>'; //impossible en théorie
+			} else if ($_GET['erreur'] == 5) {
+				echo '<i>La suppression a échoué pour une raison inconnue.</i>';
 			}
 		}
 		if (isset($_GET['update'])) {
@@ -66,6 +70,21 @@ if (!isset($_SESSION['pseudo'])) {
 						<button class='close-button' onclick='closeBox()'>Fermer</button>
 					</div>
 				</div>";
+		}
+		if (isset($_GET['supp'])) { //message de confirmation de la suppression du festival
+			echo "<div id='idBox' class='messageBox'>
+					<div class='messageBoxContent'>
+						<p class='messageText'>L'annonce " . $_GET['supp'] . " a bien été supprimé.</p>
+						<button onclick='closeBox()'>Fermer</button>
+					</div>
+				</div>";
+		}
+		if (isset($_GET['confirmer'])){
+			echo "<div class='messageBoxContent'>
+			<p class='messageText'>Voulez-vous vraiment supprimer le festivalier ".$_GET['confirmer']." ?</p>
+			<a href='ValidationSuppressionFestivalier.php?id=".$_GET['confirmer']."&confirmer=oui&membre=oui'>Oui</a>
+			<a href='Membre.php'>Annuler</a>
+		  </div>";
 		}
 		?>
 	</fieldset>
@@ -97,7 +116,7 @@ if (!isset($_SESSION['pseudo'])) {
 			echo "<p><b>Détails de l'annonce : </b>" . $vehicule['description'] . "</p><br>";
 			echo "<div class='boutonsannonce'>";
 			echo "<a href='ValidationModificationVehicule.php'><input class='envoi' type='submit' value='Modifier'></a>";
-			echo "<a href='ValidationSuppressionVehicule.php'><input class='envoi' type='submit' value='Supprimer'></a>";
+			echo "<a href='ValidationSuppressionVehicule.php?id=".$vehicule['id']."'><input class='envoi' type='submit' value='Supprimer'></a>";
 			echo "</div>";
 			echo "</div>";
 			echo "</div>";
@@ -118,7 +137,7 @@ if (!isset($_SESSION['pseudo'])) {
             echo "<p><b>Détails de l'annonce : </b>" . $festivalier['description'] . "</p>";
 			echo "<div class='boutonsannonce'>";
 			echo "<a href='ValidationModificationFestivalier.php'><input class='envoi' type='submit' value='Modifier'></a>";
-			echo "<a href='ValidationSuppressionFestivalier.php'><input class='envoi' type='submit' value='Supprimer'></a>";
+			echo "<a href='ValidationSuppressionFestivalier.php?id=".$festivalier['id']."&membre=oui'><input class='envoi' type='submit' value='Supprimer'></a>";
 			echo "</div>";
             echo "</div>";
             echo "</div>";
