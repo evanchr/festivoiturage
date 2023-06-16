@@ -28,7 +28,7 @@ if (isset($_GET['nom'])){
             $festivalInfos = $festivalDAO->getFestival($festival);
         }
         if ($festivalInfos->rowCount() == 0) {
-            header('Location:AdminFestivals.php?erreur=2'); //erreur inconnue
+            header('Location:Connexion.php?erreur=2'); //erreur inconnue
         } else {
             foreach ($festivalInfos->fetchAll(PDO::FETCH_ASSOC) as $ligne) {
                 $nom = $ligne['nom'];

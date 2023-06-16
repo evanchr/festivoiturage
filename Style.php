@@ -419,3 +419,7 @@ background-color: #ccc;
   gap : 10px;
   margin: auto;
 }
+
+.recherche{
+  width: 65%;
+}

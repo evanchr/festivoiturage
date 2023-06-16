@@ -1,8 +1,8 @@
 <?php
 session_start();
 if (!isset($_SESSION['pseudo'])) {
-	header('Location: Connexion.php');
-	exit();
+    header('Location: Connexion.php');
+    exit();
 }
 
 use DAO\FestivalDAO;
@@ -81,21 +81,21 @@ require_once 'DAO/FestivalDAO.php';
             <label for="description" class="inscription">Description : </label>
             <textarea id="description" name="description" maxlength="500" rows="5" cols="100" placeholder="Je suis à la recherche d(un trajet entre rennes et paris pour me rendre au festival solidays..." class="champ" required></textarea><br>
 
-<?php
-if (isset($_GET['erreur'])) {
-    if ($_GET['erreur'] == 1) {
-        echo '<i>Les 2 dates ne correspondent pas, vous ne pouvez pas mettre une date de retour plus tôt que la date d\'aller.</i>';
-    } else if ($_GET['erreur'] == 2) {
-        echo '<i>Cette annonce existe déjà sur Festi\'Covoit</i>';
-    } else if ($_GET['erreur'] == 3) {
-        echo '<i>Erreur inconnue</i>';
-    }
-}
-?>
-</fieldset>
+            <?php
+            if (isset($_GET['erreur'])) {
+                if ($_GET['erreur'] == 1) {
+                    echo '<i>Les 2 dates ne correspondent pas, vous ne pouvez pas mettre une date de retour plus tôt que la date d\'aller.</i>';
+                } else if ($_GET['erreur'] == 2) {
+                    echo '<i>Cette annonce existe déjà sur Festi\'Covoit</i>';
+                } else if ($_GET['erreur'] == 3) {
+                    echo '<i>Erreur inconnue</i>';
+                }
+            }
+            ?>
+        </fieldset>
 
-<input class="envoi" type="submit" name="envoyer" value="Publier mon annonce">
-</form>
+        <input class="envoi" type="submit" name="envoyer" value="Publier mon annonce">
+    </form>
 </body>
 
 </html>

@@ -60,7 +60,8 @@ class FestivalierDAO extends DAO
 
 
     // Mettre à jour une annonce festivalier
-    public function update(object $festivalier, string $oldNom){
+    public function update(object $festivalier, string $oldid){
+        $oldid = $oldid;
         $id = $festivalier->getId();
         $nom = $festivalier->getNom();
         $prenom = $festivalier->getPrenom();
@@ -71,10 +72,9 @@ class FestivalierDAO extends DAO
         $dateAller = $festivalier->getDateAller();
         $dateRetour = $festivalier->getDateRetour();
         $description = $festivalier->getDescription();
-        $createur = $festivalier->getCreateur();
         $connexion = $this->connect;
-        $pdostat = $connexion->prepare("UPDATE festivalier SET id = :id, nom = :nom, prenom = :prenom, age = :age, genre = :genre, festival = :festival, ville = :ville, dateAller = :dateAller, dateRetour = :dateRetour, description = :description, createur = :createur WHERE id = :id");
-        $pdostat->bindValue(':id', $id);
+        $pdostat = $connexion->prepare("UPDATE festivalier SET nom = :nom, prenom = :prenom, age = :age, genre = :genre, festival = :festival, ville = :ville, dateAller = :dateAller, dateRetour = :dateRetour, description = :description WHERE festivalier.id = :oldid");
+        $pdostat->bindValue(':oldid', $oldid);
         $pdostat->bindValue(':nom', $nom);
         $pdostat->bindValue(':prenom', $prenom);
         $pdostat->bindValue(':age', $age);
@@ -84,13 +84,8 @@ class FestivalierDAO extends DAO
         $pdostat->bindValue(':dateAller', $dateAller);
         $pdostat->bindValue(':dateRetour', $dateRetour);
         $pdostat->bindValue(':description', $description);
-        $pdostat->bindValue(':createur', $createur);
-        $pdostat->execute();
-        if ($pdostat->rowCount() == 0) {
-            return false;
-        } else {
-            return true;
-        }
+        $success = $pdostat->execute();
+        return $success;
     }
 
     // Supprimer une annonce festivalier
@@ -106,9 +101,8 @@ class FestivalierDAO extends DAO
         }
     }
 
-
-    public function getFestival(object $festival){
-        $id = $festival->getId();
+    public function getFestivalier(object $festivalier){
+        $id = $festivalier->getId();
         $connexion = $this->connect;
         $pdostat = $connexion->prepare("SELECT * FROM festivalier WHERE id = :id");
         $pdostat->bindValue(':id', $id);
