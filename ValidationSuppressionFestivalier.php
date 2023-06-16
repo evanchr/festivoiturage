@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
     if (!isset($_GET['confirmer'])) {
         if (isset($_GET['membre'])) {
-            header('Location:Membre.php?membre=oui&confirmer=' . $id);
+            header('Location:Membre.php?membre=oui&confirmerF=' . $id);
             exit();
         } else {
             header('Location:AdminFestivaliers.php?confirmer=' . $id);

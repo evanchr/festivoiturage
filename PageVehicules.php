@@ -52,6 +52,14 @@ require_once 'DAO/VehiculeDAO.php';
                         </div>
                     </div>";
             }
+            if (isset($_GET['reserver'])) {
+                echo "<div id='idBox' class='messageBox'>
+                        <div class='messageBoxContent'>
+                            <p class='messageText'>Ce site étant fictif, cette action ne peut être réalisée.</p>
+                            <button class='close-button' onclick='closeBox()'>Fermer</button>
+                        </div>
+                    </div>";
+            }
             ?>
             <img src="Images/User.png" alt="bouton connexion">
         </div>
@@ -97,6 +105,9 @@ require_once 'DAO/VehiculeDAO.php';
             echo "<p><b>Nombre de places disponibles : </b>" . $vehicule['places'] . "</p>";
             echo "<p><b>Propriétaire du véhicule : </b>" . $vehicule['proprietaire'] ."</p>";
             echo "<p><b>Détails de l'annonce : </b>" . $vehicule['description'] . "</p>";
+            echo "<div class='boutonsannonce'>";
+		    echo "<a href='PageVehicules.php?reserver=oui'><input class='envoi' type='submit' value='Réserver'></a>";
+			echo "</div>";
             echo "</div>";
             echo "</div>";
         }

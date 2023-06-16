@@ -58,7 +58,7 @@ if (!isset($_SESSION['pseudo'])) {
 			} else if ($_GET['erreur'] == 3) {
 				echo '<i>La suppression a échoué pour une raison inconnue.</i>';
 			} else if ($_GET['erreur'] == 4) {
-				echo '<i>Ce festivalier n\'existe pas donc vous ne pouvez pas le supprimer.</i>'; //impossible en théorie
+				echo '<i>Cette annonce n\'existe pas donc vous ne pouvez pas le supprimer.</i>'; //impossible en théorie
 			} else if ($_GET['erreur'] == 5) {
 				echo '<i>La suppression a échoué pour une raison inconnue.</i>';
 			}
@@ -79,10 +79,16 @@ if (!isset($_SESSION['pseudo'])) {
 					</div>
 				</div>";
 		}
-		if (isset($_GET['confirmer'])){
+		if (isset($_GET['confirmerV'])){
 			echo "<div class='messageBoxContent'>
-			<p class='messageText'>Voulez-vous vraiment supprimer le festivalier ".$_GET['confirmer']." ?</p>
-			<a href='ValidationSuppressionFestivalier.php?id=".$_GET['confirmer']."&confirmer=oui&membre=oui'>Oui</a>
+			<p class='messageText'>Voulez-vous vraiment supprimer l'annonce véhicule ".$_GET['confirmerV']." ?</p>
+			<a href='ValidationSuppressionVehicule.php?id=".$_GET['confirmerV']."&confirmer=oui&membre=oui'>Oui</a>
+			<a href='Membre.php'>Annuler</a>
+		  </div>";
+		}if (isset($_GET['confirmerF'])){
+			echo "<div class='messageBoxContent'>
+			<p class='messageText'>Voulez-vous vraiment supprimer l'annonce festivalier ".$_GET['confirmerF']." ?</p>
+			<a href='ValidationSuppressionFestivalier.php?id=".$_GET['confirmerF']."&confirmer=oui&membre=oui'>Oui</a>
 			<a href='Membre.php'>Annuler</a>
 		  </div>";
 		}
@@ -116,7 +122,7 @@ if (!isset($_SESSION['pseudo'])) {
 			echo "<p><b>Détails de l'annonce : </b>" . $vehicule['description'] . "</p><br>";
 			echo "<div class='boutonsannonce'>";
 			echo "<a href='ValidationModificationVehicule.php'><input class='envoi' type='submit' value='Modifier'></a>";
-			echo "<a href='ValidationSuppressionVehicule.php?id=".$vehicule['id']."'><input class='envoi' type='submit' value='Supprimer'></a>";
+			echo "<a href='ValidationSuppressionVehicule.php?id=".$vehicule['id']."&membre=oui'><input class='envoi' type='submit' value='Supprimer'></a>";
 			echo "</div>";
 			echo "</div>";
 			echo "</div>";

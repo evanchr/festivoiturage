@@ -33,6 +33,13 @@ shuffle($annonces);
 </head>
 
 <body>
+    <script>
+        // Fonction pour fermer les fenêtres de messages
+        function closeBox() {
+            var box = document.getElementById('idBox');
+            box.style.display = 'none';
+        }
+    </script>
 
     <div class="head">
         <h1>Festi'Covoit</h1>
@@ -49,6 +56,14 @@ shuffle($annonces);
                 echo '<a href="AjoutUser.php"><h4>S\'inscrire</h4></a>';
                 echo '<h4> - </h4>';
                 echo "<a href='Connexion.php'><h4>Connexion</h4></a>";
+            }
+            if (isset($_GET['reserver'])) {
+                echo "<div id='idBox' class='messageBox'>
+                        <div class='messageBoxContent'>
+                            <p class='messageText'>Ce site étant fictif, cette action ne peut être réalisée.</p>
+                            <button class='close-button' onclick='closeBox()'>Fermer</button>
+                        </div>
+                    </div>";
             }
             ?>
             <img src="Images/User.png" alt="bouton connexion">
@@ -94,6 +109,9 @@ shuffle($annonces);
                 echo "<p><b>Nombre de places disponibles : </b>" . $annonce['places'] . "</p>";
                 echo "<p><b>Propriétaire du véhicule : </b>" . $annonce['proprietaire'] . "</p>";
                 echo "<p><b>Détails de l'annonce : </b>" . $annonce['description'] . "</p>";
+                echo "<div class='boutonsannonce'>";
+                echo "<a href='PageAnnonces.php?reserver=oui'><input class='envoi' type='submit' value='Réserver'></a>";
+                echo "</div>";
             } else {
                 // C'est une annonce de festivalier
                 echo "<img src='Images/Festivaliers.png' alt='icone festivalier'>";
@@ -106,6 +124,9 @@ shuffle($annonces);
                     echo "<p><b>Retour le : </b>" . $annonce['dateRetour'] . "</p>";
                 }
                 echo "<p><b>Détails de l'annonce : </b>" . $annonce['description'] . "</p>";
+                echo "<div class='boutonsannonce'>";
+                echo "<a href='PageAnnonces.php?reserver=oui'><input class='envoi' type='submit' value='Réserver'></a>";
+                echo "</div>";
             }
             echo "</div>";
             echo "</div>";

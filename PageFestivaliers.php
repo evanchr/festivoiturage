@@ -52,6 +52,14 @@ require_once 'DAO/FestivalierDAO.php';
                         </div>
                     </div>";
             }
+            if (isset($_GET['reserver'])) {
+                echo "<div id='idBox' class='messageBox'>
+                        <div class='messageBoxContent'>
+                            <p class='messageText'>Ce site étant fictif, cette action ne peut être réalisée.</p>
+                            <button class='close-button' onclick='closeBox()'>Fermer</button>
+                        </div>
+                    </div>";
+            }
             ?>
             <img src="Images/User.png" alt="bouton connexion">
         </div>
@@ -97,6 +105,9 @@ require_once 'DAO/FestivalierDAO.php';
                 echo "<p><b>Retour le : </b>" . $festivalier['dateRetour'] . "</p>";
             }
             echo "<p><b>Détails de l'annonce : </b>" . $festivalier['description'] . "</p>";
+            echo "<div class='boutonsannonce'>";
+		    echo "<a href='PageFestivaliers.php?reserver=oui'><input class='envoi' type='submit' value='Réserver'></a>";
+			echo "</div>";
             echo "</div>";
             echo "</div>";
         }
