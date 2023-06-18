@@ -32,3 +32,4 @@ abstract class DAO
     public abstract function update(object $obj, String $oldlog);
     public abstract function delete(object $obj);
 }
+?>

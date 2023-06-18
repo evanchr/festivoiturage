@@ -125,3 +125,4 @@ class FestivalierDAO extends DAO
         return $pdostat->fetchAll(\PDO::FETCH_ASSOC);
     }
 }
+?>

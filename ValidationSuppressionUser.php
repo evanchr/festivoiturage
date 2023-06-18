@@ -52,3 +52,4 @@ try {
     echo "<p>Erreur: " . $e->getMessage();
     die();
 }
+?>

@@ -41,3 +41,4 @@ if (isset($_GET['nom'])) {
         die();
     }
 }
+?>
