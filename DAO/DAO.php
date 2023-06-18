@@ -15,8 +15,8 @@ abstract class DAO
     protected static function connectStatic()
     {
         try {
-            //$connexion = new \PDO('mysql:servername=localhost; dbname=retxaqbg_festicovoit; charset=utf8mb4', 'retxaqbg_evan', 'Evan.Mateo1234');
-            $connexion = new \PDO('mysql:host=localhost; dbname=festicovoit; charset=utf8mb4', 'root', 'root');
+            //$connexion = new \PDO('mysql:servername=localhost; dbname=retxaqbg_festicovoit; charset=utf8mb4', 'retxaqbg_evan', 'Evan.Mateo1234'); //connexion serveur hébergé
+            $connexion = new \PDO('mysql:host=localhost; dbname=festicovoit; charset=utf8mb4', 'root', 'root'); //connexion serveur perso
 
             $connexion->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             return $connexion;
