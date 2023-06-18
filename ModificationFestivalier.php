@@ -58,7 +58,7 @@ if (isset($_GET['id'])) {
 <html lang="fr">
 
 <head>
-    <title>Modification de festivalier</title>
+    <title>Festi'Covoit - Modification de festivalier</title>
     <link href="Style.php" rel="stylesheet" media="all" type="text/css">
 </head>
 

@@ -56,12 +56,12 @@ if (isset($_GET['id'])) {
 <html lang="fr">
 
 <head>
-    <title>Modification de Vehicule</title>
+    <title>Festi'Covoit - Modification de véhicule</title>
     <link href="Style.php" rel="stylesheet" media="all" type="text/css">
 </head>
 
 <body>
-    <h1>Vehicule <?php echo $type; ?></h1>
+    <h1>Véhicule <?php echo $type; ?></h1>
 
     <div class="menu">
         <a href="Home.php">

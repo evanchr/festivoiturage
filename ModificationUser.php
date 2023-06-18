@@ -14,7 +14,7 @@ if (!isset($_SESSION['pseudo'])) {
 <html lang="fr">
 
 <head>
-    <title>Espace membre</title>
+    <title>Festi'Covoit - Espace membre</title>
     <link href="Style.php" rel="stylesheet" media="all" type="text/css">
 </head>
 

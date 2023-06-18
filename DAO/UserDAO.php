@@ -21,6 +21,7 @@ class UserDAO extends DAO {
         return $pdostat;
     }
 
+    // vérifier si un user existe
     public function exists(object $user) {
         $login = $user->getPseudo();
         $connexion = $this->connect;
@@ -34,6 +35,7 @@ class UserDAO extends DAO {
         }
     }
 
+    // vérifier si un user est admin
     public function admin(object $user) {
         $login = $user->getPseudo();
         $connexion = $this->connect;
@@ -72,6 +74,7 @@ class UserDAO extends DAO {
         }
     }
 
+    // mettre à jour un profil user
     public function update(object $user, String $oldlogin) {
         $nom = $user->getNom();
         $prenom = $user->getPrenom();
@@ -94,6 +97,7 @@ class UserDAO extends DAO {
         }
     }
 
+    // supprimer un user
     public function delete(object $user) {
         $pseudo = $user->getPseudo();
         $connexion = $this->connect;
@@ -106,6 +110,7 @@ class UserDAO extends DAO {
         }
     }
 
+    // récupérer les infos d'un user selon son pseudo
     public function getUser(object $user) {
         $pseudo = $user->getPseudo();
         $connexion = $this->connect;
@@ -114,7 +119,7 @@ class UserDAO extends DAO {
         return $pdostat;
     }
 
-
+    // lister tous les users
     public static function listeAllUser() {
         $connexion = self::connectStatic();
         $pdostat = $connexion->prepare("SELECT * FROM user WHERE admin = 0");
@@ -122,6 +127,7 @@ class UserDAO extends DAO {
         return $pdostat->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    // lister tous les admins
     public static function listeAllAdmin() {
         $connexion = self::connectStatic();
         $pdostat = $connexion->prepare("SELECT * FROM user WHERE admin = 1");

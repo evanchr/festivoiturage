@@ -92,6 +92,7 @@ class VehiculeDAO extends DAO {
         }
     }
 
+    // récupérer les infos d'une annonce véhicule en fonction de l'id
     public function getVehicule(object $vehicule) {
         $id = $vehicule->getId();
         $connexion = $this->connect;
@@ -101,6 +102,7 @@ class VehiculeDAO extends DAO {
         return $pdostat;
     }
 
+    // récupérer toutes les annonces véhicule
     public static function listeAll() {
         $connexion = self::connectStatic();
         $pdostat = $connexion->prepare("SELECT * FROM vehicule ORDER BY id ASC");
@@ -108,6 +110,7 @@ class VehiculeDAO extends DAO {
         return $pdostat->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    // récupérer toutes les annonces véhicule d'un certain utilisateur
     public static function listeAllFromUser($pseudo) {
         $connexion = self::connectStatic();
         $pdostat = $connexion->prepare("SELECT * FROM vehicule WHERE proprietaire = :user ORDER BY id ASC");

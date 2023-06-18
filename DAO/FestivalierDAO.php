@@ -101,6 +101,7 @@ class FestivalierDAO extends DAO
         }
     }
 
+    // récupérer les infos d'un festivalier
     public function getFestivalier(object $festivalier){
         $id = $festivalier->getId();
         $connexion = $this->connect;
@@ -110,6 +111,7 @@ class FestivalierDAO extends DAO
         return $pdostat;
     }
 
+    // lister toutes les annonces de festivaliers
     public static function listeAll(){
         $connexion = self::connectStatic();
         $pdostat = $connexion->prepare("SELECT * FROM festivalier ORDER BY id ASC");
@@ -117,6 +119,7 @@ class FestivalierDAO extends DAO
         return $pdostat->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    // lister toutes les annonces de festivaliers d'un user
     public static function listeAllFromUser($pseudo){
         $connexion = self::connectStatic();
         $pdostat = $connexion->prepare("SELECT * FROM festivalier WHERE createur = :user ORDER BY id ASC");

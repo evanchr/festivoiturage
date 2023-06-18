@@ -49,7 +49,7 @@ if (isset($_GET['nom'])){
 <html lang="fr">
 
 <head>
-    <title>Modification de festival</title>
+    <title>Festi'Covoit - Modification de festival</title>
     <link href="Style.php" rel="stylesheet" media="all" type="text/css">
 </head>
 

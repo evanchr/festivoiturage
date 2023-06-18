@@ -1,7 +1,9 @@
 <?php
 header("Content-type: text/css");
 ?>
+
 /* CSS General */
+
 body{
 background-color: #acdfff;
 font-family: Poppins, sans-serif;
@@ -80,8 +82,6 @@ background-color: #ff9f10;
 border-radius: 5px;
 border-style: none;
 }
-
-/* CSS Homepage */
 
 .head{
 display: flex;
@@ -201,7 +201,6 @@ justify-content: center;
 transform: scale(1.05);
 }
 
-/* CSS Thème */
 select{
 background-color : white;
 }
@@ -237,18 +236,6 @@ border-color: black;
 text-align: center;
 }
 
-.place{
-width: 10%;
-}
-
-.joueur{
-width: 30%;
-}
-
-.theme{
-width: 20%;
-}
-
 /* CSS Inscription & Connexion*/
 
 legend{
@@ -280,6 +267,7 @@ margin: auto;
 }
 
 /* CSS Admin */
+
 .sidebar {
 width: auto;
 height: 100%;
@@ -320,7 +308,7 @@ color: #ff9f10; /* Couleur de police par défaut */
 }
 
 .content {
-margin-left: 200px; /* Ajuster en fonction de la largeur de la barre latérale */
+margin-left: 200px;
 padding: 20px;
 display: block;
 }
@@ -414,12 +402,12 @@ background-color: #ccc;
 }
 
 .boutonsannonce {
-  display: flex;
-  justify-content: center;
-  gap : 10px;
-  margin: auto;
+display: flex;
+justify-content: center;
+gap : 10px;
+margin: auto;
 }
 
 .recherche{
-  width: 65%;
+width: 65%;
 }

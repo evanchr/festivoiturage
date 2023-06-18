@@ -81,6 +81,7 @@ class FestivalDAO extends DAO {
         }
     }
 
+    // récupérer les infos d'un festival
     public function getFestival(object $festival) {
         $nom = $festival->getNom();
         $connexion = $this->connect;
@@ -90,6 +91,7 @@ class FestivalDAO extends DAO {
         return $pdostat;
     }
 
+    // lister tous les festivals
     public static function listeAll() {
         $connexion = self::connectStatic();
         $pdostat = $connexion->prepare("SELECT * FROM festival ORDER BY nom ASC");
