@@ -16,9 +16,13 @@ if (isset($_GET['pseudo'])) {
     }
 } else {
     $pseudo = $_SESSION["pseudo"];
+    if (!isset($_GET['confirmer'])) {
+        header('Location:Membre.php?confirmer=' . $pseudo);
+        exit();
+    }
 }
 try {
-    //$pdo = new PDO('mysql:servername=localhost; dbname=retxaqbg_festicovoit; charset=utf8mb4', 'retxaqbg_evan', 'Evan.Mateo1234'); //connexion serveur hébergé
+    //$pdo = new PDO('mysql:servername=localhost; dbname=fhgnrcck_festicovoit; charset=utf8mb4', 'fhgnrcck_evan', 'Evan.Mateo1234'); //connexion serveur hébergé
     $pdo = new PDO('mysql:host=localhost; dbname=festicovoit; charset=utf8mb4', 'root', 'root'); //connexion serveur perso
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

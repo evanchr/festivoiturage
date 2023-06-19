@@ -50,7 +50,7 @@ require_once 'DAO/UserDAO.php';
                         echo '<i>La suppression a échoué pour une raison inconnue.</i>';
                     }
                 }
-                if (isset($_GET['pseudo'])) { //message de confirmation de la suppression du festival
+                if (isset($_GET['pseudo'])) { //message de confirmation de la suppression du compte
                     echo "<div id='idBox' class='messageBox'>
                             <div class='messageBoxContent'>
                                 <p class='messageText'>Le compte " . $_GET['pseudo'] . " a bien été supprimé.</p>

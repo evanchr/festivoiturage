@@ -71,6 +71,13 @@ if (!isset($_SESSION['pseudo'])) {
 					</div>
 				</div>";
 		}
+		if (isset($_GET['confirmer'])) {
+			echo "<div class='messageBoxContent'>
+			<p class='messageText'>Voulez-vous vraiment supprimer le compte " . $_GET['confirmer'] . " ?</p>
+			<a href='ValidationSuppressionUser.php?&confirmer=oui'>Oui</a>
+			<a href='AdminUsers.php'>Annuler</a>
+		  </div>";
+		}
 		if (isset($_GET['supp'])) { //message de confirmation de la suppression du festival
 			echo "<div id='idBox' class='messageBox'>
 					<div class='messageBoxContent'>

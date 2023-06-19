@@ -40,8 +40,13 @@
 					echo '<i>Erreur de correspondance pseudo/mot de passe.</i>';
 				}
 			}
-			if (isset($_GET['supp'])) {
-				echo '<script>alert("Votre compte a bien été supprimé.");</script>';
+			if (isset($_GET['supp'])) { //message de confirmation de la suppression du compte
+				echo "<div id='idBox' class='messageBox'>
+						<div class='messageBoxContent'>
+							<p class='messageText'>Le compte a bien été supprimé.</p>
+							<a href='Connexion.php'>Fermer</a>
+						</div>
+					</div>";
 			}
 			?>
 		</fieldset>
@@ -49,4 +54,5 @@
 		<input class="envoi" type="submit" name="envoyer" value="Connexion">
 	</form>
 </body>
+
 </html>
